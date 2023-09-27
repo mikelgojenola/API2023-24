@@ -13,6 +13,7 @@ public abstract class Jokalaria {
 	protected int txandaZenbakia;
 	
 	//jsdfkjslkfdñskflfñd
+	//zzzzzzzzzzzzzzzzzzzzzzz
 	//ERAIKITZAILEA
 	protected Jokalaria(int pAdina) {
 		this.eskukoKartak = new ListaKarta();
