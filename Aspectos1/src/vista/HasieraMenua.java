@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -19,7 +21,12 @@ import java.awt.event.ActionEvent;
 
 public class HasieraMenua extends JFrame {
 
+	private static HasieraMenua frame;
 	private JPanel Panelprincipal;
+	private Controller controller;
+	private JButton btnArauak;
+	private JButton btnJokatu;
+	private JButton btnIrten;
 
 	/**
 	 * Launch the application.
@@ -28,7 +35,7 @@ public class HasieraMenua extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HasieraMenua frame = new HasieraMenua();
+					frame = new HasieraMenua();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +80,9 @@ public class HasieraMenua extends JFrame {
 	*/
 	public HasieraMenua() {
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setBounds(100, 100, 450, 300);
+	    setPreferredSize(new Dimension(500,350));
+	    pack();
+	    setLocationRelativeTo(null);
 	    Panelprincipal = new JPanel();
 	    Panelprincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -93,18 +102,52 @@ public class HasieraMenua extends JFrame {
 	    Panelprincipal.add(opciones, BorderLayout.SOUTH);
 	    opciones.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-	    JButton btnJokatu = new JButton("Jokatu");
-	    opciones.add(btnJokatu);
-
-	    JButton btnArauak = new JButton("Arauak");
-	    opciones.add(btnArauak);
-
-	    JButton btnSkip = new JButton("Skip");
-	    btnSkip.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    	}
-	    });
-	    opciones.add(btnSkip);
+	    opciones.add(getBtnJokatu());
+	    opciones.add(getBtnArauak());
+	    opciones.add(getBtnIrten());
 	}
+	
+	private JButton getBtnArauak() {
+		if(btnArauak == null) {
+			btnArauak = new JButton("Arauak");
+			btnArauak.addActionListener(getController());
+		}
+		return btnArauak;
+	}
+	
+	private JButton getBtnJokatu() {
+		if(btnJokatu == null) {
+			btnJokatu = new JButton("Jokatu");
+			btnJokatu.addActionListener(getController());
+		}
+		return btnJokatu;
+	}
+	
+	private JButton getBtnIrten() {
+		if(btnIrten == null) {
+			btnIrten = new JButton("Irten");
+			btnIrten.addActionListener(getController());
+		}
+		return btnIrten;
+	}
+	
+	private Controller getController() {
+		if(controller == null) {
+			controller = new Controller();
+		}
+		return controller;
+	}
+	
+	private class Controller implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource().equals(btnIrten)) {
+				frame.dispose();
+			}
+			if(e.getSource().equals(btnArauak)) {
+				Arauak arauak = new Arauak();
+			}
+		}
+	}
+	
 
 }
