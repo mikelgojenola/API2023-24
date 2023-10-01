@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Jokalaria {
+import java.util.Observable;
+
+public abstract class Jokalaria extends Observable{
 	
 	//ATRIBUTUAK
 	private int adina;
@@ -12,8 +14,6 @@ public abstract class Jokalaria {
 	protected int arrautzaKop;
 	protected int txandaZenbakia;
 	
-	//jsdfkjslkfdñskflfñd
-	//zzzzzzzzzzzzzzzzzzzzzzz
 	//ERAIKITZAILEA
 	protected Jokalaria(int pAdina) {
 		this.eskukoKartak = new ListaKarta();
@@ -84,9 +84,6 @@ public abstract class Jokalaria {
 	
 	//IRABAZLE MEZUA METODOA
 	protected abstract void irabazleMezua();
-	
-	
-	
 	
 	
 	
