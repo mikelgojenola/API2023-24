@@ -145,6 +145,7 @@ public class HasieraMenua extends JFrame {
 			}
 			if(e.getSource().equals(btnArauak)) {
 				Arauak arauak = new Arauak();
+				//frame.setVisible(false);
 			}
 			if(e.getSource().equals(btnJokatu)) {
 				Tableroa tableroa = new Tableroa();
