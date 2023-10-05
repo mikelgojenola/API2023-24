@@ -71,6 +71,7 @@ public class Arauak extends JFrame{
 	private JTextArea getTxtrArauak() {
 		if (txtrArauak == null) {
 			txtrArauak = new JTextArea();
+			txtrArauak.setEditable(false);
 			txtrArauak.setBackground(new Color(240, 240, 240));
 			txtrArauak.setText("\r\nHELBURUA: 3 txita lortzea aurkariak baino lehen.\r\n\r\n--- ARAUAK ---\r\n\r\n1. Jokalari bakoitzak 4 karta hartuko ditu eta urte gehiago dituen jokalaria hasiko da.\r\n2. Zure txanda denean jokatzeko konbinaziorik izanez gero nahitaezkoa da jokaldia egitea.\r\n3. jokaldia egin eta gero erabilitako kartak baztertu eta berri batzuk hartuko dira 4 izan arte.\r\n4. Konbinazio posiblerik ez baduzu zure aukerako karta bat baztertu eta berri bat hartuko duzu.\r\n\r\n--- KONBINAZIOAK ---\r\n\r\n1. Oilo/Oilar/Habia = Arrautza bat hartu\r\n2. Oilo/Oilo = Arrautzarik izanez gero txita bihurtu\r\n3. Azeria = Aurkariak arrautzaren bat izanez gero hau lapurtzen saiatu\r\n4. Oilar/Oilar = Aurkariak azeriarekin erasoz gero hauek erabiliz arrautza defendatu dezakezu");
 		}
@@ -97,3 +98,4 @@ public class Arauak extends JFrame{
 		}
 	}
 }
+
