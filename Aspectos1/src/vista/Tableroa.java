@@ -22,13 +22,18 @@ public class Tableroa extends JFrame{
 	private JPanel panelPrincipal;
 	private JPanel panelPC;
 	private JPanel panelJok;
-	private JPanel panelKartak;
+	private JPanel panelKartakJok;
+	private JPanel panelKartakPC;
 	private JPanel panelAkzioak;
 	private JPanel panelJokInfo;
 	private JToggleButton btnKarta1;
 	private JToggleButton btnKarta2;
 	private JToggleButton btnKarta3;
 	private JToggleButton btnKarta4;
+	private JToggleButton btnKarta5;
+	private JToggleButton btnKarta6;
+	private JToggleButton btnKarta7;
+	private JToggleButton btnKarta8;
 	private JLabel lblPCPlatos;
 	private JLabel lblPCDinero;
 	private JButton btnKartaAldatu;
@@ -59,26 +64,28 @@ public class Tableroa extends JFrame{
 	private JPanel getPnlPC() {
 		if(panelPC == null) {
 			panelPC = new JPanel();
-			panelPC.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-			panelPC.add(new JLabel("PC:    Platos: "));
+			panelPC.setLayout(new BorderLayout());
+			JPanel panelPCInfo = new JPanel();
+			panelPCInfo.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+			panelPCInfo.add(new JLabel("PC:    Platos: "));
 			
 			
 			//--------------------------------------------------------------------------
 			ImageIcon imageIcon1 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato1.png"));
-		    Image image1 = imageIcon1.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+		    Image image1 = imageIcon1.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			JLabel lblFotoPlato = new JLabel();
 			lblFotoPlato.setIcon(new ImageIcon(image1));
-			panelPC.add(lblFotoPlato);
+			panelPCInfo.add(lblFotoPlato);
 			
 			ImageIcon imageIcon2 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato2.png"));
-		    Image image2 = imageIcon2.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+		    Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			JLabel lblFotoPlato2 = new JLabel();
 			lblFotoPlato2.setIcon(new ImageIcon(image2));
-			panelPC.add(lblFotoPlato2);
+			panelPCInfo.add(lblFotoPlato2);
 			//--------------------------------------------------------------------------
 
 			
-			panelPC.add(new JLabel("Dinero: "));
+			panelPCInfo.add(new JLabel("Dinero: "));
 			
 			
 			//--------------------------------------------------------------------------
@@ -86,34 +93,48 @@ public class Tableroa extends JFrame{
 		    Image image3 = imageIcon3.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			JLabel lblFotoDinero = new JLabel();
 			lblFotoDinero.setIcon(new ImageIcon(image3));
-			panelPC.add(lblFotoDinero);
+			panelPCInfo.add(lblFotoDinero);
 			//--------------------------------------------------------------------------
+			
+			panelPC.add(panelPCInfo, BorderLayout.NORTH);
+			
+			panelPC.add(getPnlKartakPC(), BorderLayout.SOUTH);	
 
 		}
 		return panelPC;
+	}
+	
+	private JPanel getPnlKartakPC() {
+		if(panelKartakPC == null) {
+			panelKartakPC = new JPanel();
+			panelKartakPC.add(getBtnKarta5());
+			panelKartakPC.add(getBtnKarta6());
+			panelKartakPC.add(getBtnKarta7());
+			panelKartakPC.add(getBtnKarta8());
+		}
+		return panelKartakPC;
 	}
 	
 	private JPanel getPnlJok() {
 		if(panelJok == null) {
 			panelJok = new JPanel();
 			panelJok.setLayout(new BorderLayout());
-			panelJok.add(getPnlKartak(), BorderLayout.NORTH);
+			panelJok.add(getPnlKartakJok(), BorderLayout.NORTH);
 			panelJok.add(getPnlAkzioak(), BorderLayout.CENTER);
 			panelJok.add(getPnlJokInfo(), BorderLayout.SOUTH);
 		}
 		return panelJok;
 	}
 	
-	private JPanel getPnlKartak() {
-		if(panelKartak == null) {
-			panelKartak = new JPanel();
-			panelKartak.add(getBtnKarta1());
-			panelKartak.add(getBtnKarta2());
-			panelKartak.add(getBtnKarta3());
-			panelKartak.add(getBtnKarta4());
-
+	private JPanel getPnlKartakJok() {
+		if(panelKartakJok == null) {
+			panelKartakJok = new JPanel();
+			panelKartakJok.add(getBtnKarta1());
+			panelKartakJok.add(getBtnKarta2());
+			panelKartakJok.add(getBtnKarta3());
+			panelKartakJok.add(getBtnKarta4());
 		}
-		return panelKartak;
+		return panelKartakJok;
 	}
 
 	private JPanel getPnlAkzioak() {
@@ -136,13 +157,13 @@ public class Tableroa extends JFrame{
 			
 			//--------------------------------------------------------------------------
 			ImageIcon imageIcon4 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato3.png"));
-		    Image image4 = imageIcon4.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+		    Image image4 = imageIcon4.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			JLabel lblFotoPlato = new JLabel();
 			lblFotoPlato.setIcon(new ImageIcon(image4));
 			panelJokInfo.add(lblFotoPlato);
 			
 			ImageIcon imageIcon5 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato1.png"));
-		    Image image5 = imageIcon5.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+		    Image image5 = imageIcon5.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 			JLabel lblFotoPlato2 = new JLabel();
 			lblFotoPlato2.setIcon(new ImageIcon(image5));
 			panelJokInfo.add(lblFotoPlato2);
@@ -227,6 +248,54 @@ public class Tableroa extends JFrame{
 		}
 		return btnKarta4;
 	}
+	
+	private JToggleButton getBtnKarta5() {
+		if(btnKarta5 == null) {
+			btnKarta5 = new JToggleButton();
+		    btnKarta5.setPreferredSize(new Dimension(100, 170));
+		    btnKarta5.setLayout(new BorderLayout());
+
+			btnKarta5.add(new JLabel("Carta 5"), BorderLayout.NORTH);
+		}
+		return btnKarta5;
+	}
+	
+	private JToggleButton getBtnKarta6() {
+		if(btnKarta6 == null) {
+			btnKarta6 = new JToggleButton();
+		    btnKarta6.setPreferredSize(new Dimension(100, 170));
+		    btnKarta6.setLayout(new BorderLayout());
+
+			btnKarta6.add(new JLabel("Carta 6"), BorderLayout.NORTH);
+		}
+		return btnKarta6;
+	}
+	
+	private JToggleButton getBtnKarta7() {
+		if(btnKarta7 == null) {
+			btnKarta7 = new JToggleButton();
+		    btnKarta7.setPreferredSize(new Dimension(100, 170));
+		    btnKarta7.setLayout(new BorderLayout());
+
+			btnKarta7.add(new JLabel("Carta 7"), BorderLayout.NORTH);
+		}
+		return btnKarta7;
+	}
+	
+	
+	private JToggleButton getBtnKarta8() {
+		if(btnKarta8 == null) {
+			btnKarta8 = new JToggleButton();
+		    btnKarta8.setPreferredSize(new Dimension(100, 170));
+		    btnKarta8.setLayout(new BorderLayout());
+
+			btnKarta8.add(new JLabel("Carta 8"), BorderLayout.NORTH);
+		}
+		return btnKarta8;
+	}
+	
+	
+	
 	
 	private JLabel getLblPCPlatos() {
 		if(lblPCPlatos == null) {
