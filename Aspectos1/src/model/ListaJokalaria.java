@@ -2,6 +2,9 @@ package model;
 
 
 import java.util.Random;
+
+import vista.HasieraMenua;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -51,12 +54,12 @@ public class ListaJokalaria {
 	}
 	
 	//MAIN METODOA
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		partidaHasieratu();
-	}
+	}*/
 	
 	//PARTIDA HASIERATU METODOA
-	public static void partidaHasieratu() {
+	/*public static void partidaHasieratu() {
 		System.out.println("                MENUA");
 		System.out.println("Sakatu 1 jolasteko, 2 arauak irakurtzeko edo 3 irtetzeko");
 		int sarrera = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -90,7 +93,7 @@ public class ListaJokalaria {
 			e.inprimatuMezua();
 			partidaHasieratu();
 		}
-	}
+	}*/
 	
 	
 	
@@ -111,30 +114,33 @@ public class ListaJokalaria {
 	
 	//PARTIDA JOLASTU METODOA	
 	public static void partidaJolastu() {
-		int j,m;
-		System.out.println("Sartu zure nick-a");		
-		String izena = Teklatua.getNireTeklatua().irakurriString();
-		System.out.println("Sartu zure adina");
-		Teklatua.getNireTeklatua();
-		int adina = Teklatua.getNireTeklatua().irakurriOsoa();
-		Random rd = new Random();
-		int adinaCPU = rd.nextInt(100)+1;
-		System.out.println(adinaCPU);
-		System.out.println(adina);
-		if (adinaCPU < adina) {
-			System.out.println("Makina lehenengo jokalaria da");			
-			m = 0;
-			j = 1;
+		//int j,m;
+		//System.out.println("Sartu zure nick-a");
+		//String izena = Teklatua.getNireTeklatua().irakurriString();
+		//System.out.println("Zure nick-a: " + n);
+		//System.out.println("Sartu zure adina");
+		//Teklatua.getNireTeklatua();
+		//int adina = Teklatua.getNireTeklatua().irakurriOsoa();
+		//Random rd = new Random();
+		//int adinaCPU = rd.nextInt(100)+1;
+		//System.out.println(adinaCPU);
+		//System.out.println(e);
+		//if (adinaCPU < e) {
+			//System.out.println("Makina lehenengo jokalaria da");			
+			//m = 0;
+			//j = 1;
 			
-		}
-		else {
-			System.out.println("Lehenengo jokalaria zara");
+		//}
+		//else {
+			//System.out.println("Lehenengo jokalaria zara");
 			
-			j = 0;
-			m = 1;
-		}
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(izena,adina,j);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
+			//j = 0;
+			//m = 1;
+		//}
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(n,e,j);
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(Tableroa);
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(Tableroa);
 		jokoaBerrabiarazi();
 		kartakBanatu();
 		while (!bukaera()) {
