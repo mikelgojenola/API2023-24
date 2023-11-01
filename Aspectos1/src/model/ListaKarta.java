@@ -94,7 +94,7 @@ public class ListaKarta {
 	}
 	
 	//BAZTERTU KARTA MOTA JAKINDA METODOA
-	public Karta baztertuKartaMotaJakinda(String sarrera) {
+	public Karta baztertuKartaMotaJakinda(KartaMotak sarrera) {
 		Karta k = null, b;		
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && k == null) {
