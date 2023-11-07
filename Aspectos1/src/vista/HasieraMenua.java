@@ -7,6 +7,11 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.JokalariArrunta;
+import model.JokalariCPU;
+import model.ListaJokalaria;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -17,7 +22,9 @@ import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class HasieraMenua extends JFrame {
 
@@ -27,6 +34,11 @@ public class HasieraMenua extends JFrame {
 	private JButton btnArauak;
 	private JButton btnJokatu;
 	private JButton btnIrten;
+	private JPanel panelNombreEdad;
+	private JTextField txtfldEdad;
+	private JLabel lblEdad;
+	private JTextField txtfldNombre;
+	private JLabel lblNombre;
 
 	/**
 	 * Launch the application.
@@ -105,6 +117,7 @@ public class HasieraMenua extends JFrame {
 	    opciones.add(getBtnJokatu());
 	    opciones.add(getBtnArauak());
 	    opciones.add(getBtnIrten());
+	    Panelprincipal.add(getPanelNombreEdad(), BorderLayout.NORTH);
 	}
 	
 	private JButton getBtnArauak() {
@@ -147,11 +160,83 @@ public class HasieraMenua extends JFrame {
 				Arauak arauak = new Arauak();
 			}
 			if(e.getSource().equals(btnJokatu)) {
-				Tableroa tableroa = new Tableroa();
+				String nombre = HasieraMenua.this.txtfldNombre.getText();
+				int edad = Integer.parseInt(HasieraMenua.this.txtfldEdad.getText());
+				Tableroa tableroa = new Tableroa(nombre);
 				frame.setVisible(false);
+				//-----------------------partidaPrestatu(nombre, edad);
+				//ListaJokalaria.partidaJolastu(nombre,edad);
 			}
 		}
 	}
 	
+	public void partidaPrestatu(String n, int e) {
+		Tableroa tableroa = new Tableroa(n);
+		int j,m;
+		//System.out.println("Sartu zure nick-a");
+		//String izena = Teklatua.getNireTeklatua().irakurriString();
+		System.out.println("Zure nick-a: " + n);
+		//System.out.println("Sartu zure adina");
+		//Teklatua.getNireTeklatua();
+		//int adina = Teklatua.getNireTeklatua().irakurriOsoa();
+		Random rd = new Random();
+		int adinaCPU = rd.nextInt(100)+1;
+		System.out.println(adinaCPU);
+		System.out.println(e);
+		if (adinaCPU < e) {
+			System.out.println("Makina lehenengo jokalaria da");			
+			m = 0;
+			j = 1;
+			
+		}
+		else {
+			System.out.println("Lehenengo jokalaria zara");
+			
+			j = 0;
+			m = 1;
+		}
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(n,e,j);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(tableroa);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
+		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(tableroa);
+		ListaJokalaria.partidaJolastu();
+	}
+	
 
+	private JPanel getPanelNombreEdad() {
+		if (panelNombreEdad == null) {
+			panelNombreEdad = new JPanel();
+			panelNombreEdad.add(getLblNombre());
+			panelNombreEdad.add(getTxtfldNombre());
+			panelNombreEdad.add(getLblEdad());
+			panelNombreEdad.add(getTxtfldEdad());
+		}
+		return panelNombreEdad;
+	}
+	private JTextField getTxtfldEdad() {
+		if (txtfldEdad == null) {
+			txtfldEdad = new JTextField();
+			txtfldEdad.setColumns(10);
+		}
+		return txtfldEdad;
+	}
+	private JLabel getLblEdad() {
+		if (lblEdad == null) {
+			lblEdad = new JLabel("edad");
+		}
+		return lblEdad;
+	}
+	private JTextField getTxtfldNombre() {
+		if (txtfldNombre == null) {
+			txtfldNombre = new JTextField();
+			txtfldNombre.setColumns(10);
+		}
+		return txtfldNombre;
+	}
+	private JLabel getLblNombre() {
+		if (lblNombre == null) {
+			lblNombre = new JLabel("nombre");
+		}
+		return lblNombre;
+	}
 }

@@ -8,6 +8,7 @@ public class HasierakoBaraja {
 	//ATRIBUTUAK
 	private ListaKarta lista;
 	private static HasierakoBaraja nireBaraja = null;
+	private Random ran = new Random();
 	
 	//ERAIKITZAILEA
 	private HasierakoBaraja() {
@@ -27,19 +28,27 @@ public class HasierakoBaraja {
 	public void barajaBete() {
 		int i = 0,x = 0,p = 0, k = 0;
 		while (i<48) {
-			lista.gehituKarta(new Karta ("Azeria"));
+			//lista.gehituKarta(new Karta ("Azeria"));
+			Karta kar = KartaFactory.getK().sortuKarta(KartaMotak.Malo, p);
+			lista.gehituKarta(kar);
 			i++;
 		}
 		while (x<88) {
-			lista.gehituKarta(new Karta ("Habia"));
+			//lista.gehituKarta(new Karta ("Habia"));
+			Karta kar = KartaFactory.getK().sortuKarta(KartaMotak.Cocina, p);
+			lista.gehituKarta(kar);
 			x++;
 		}
 		while (p<120) {
-			lista.gehituKarta(new Karta ("Oilar"));
+			//lista.gehituKarta(new Karta ("Oilar"));
+			Karta kar = KartaFactory.getK().sortuKarta(KartaMotak.Rata, p);
+			lista.gehituKarta(kar);
 			p++;
 		}
 		while (k<120) {
-			lista.gehituKarta(new Karta ("Oilo"));
+			//lista.gehituKarta(new Karta ("Oilo"));
+			Karta kar = KartaFactory.getK().sortuKarta(KartaMotak.Chef, p);
+			lista.gehituKarta(kar);
 			k++;
 		}
 		lista.setKartaKop(376);

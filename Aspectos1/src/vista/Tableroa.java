@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
-public class Tableroa extends JFrame{
+public class Tableroa extends JFrame implements Observer {
 	
 	//private static Tableroa frame;
 	private JPanel panelPrincipal;
@@ -41,14 +43,14 @@ public class Tableroa extends JFrame{
 	private Controller controller;
 
 	
-	public Tableroa() {
+	public Tableroa(String n) {
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setPreferredSize(new Dimension(850,550));
 	    pack();
 	    setLocationRelativeTo(null);
 	    
 	    panelPrincipal = new JPanel();
-	    this.setTitle("ZZ");
+	    this.setTitle(n);
 	    panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 	    setContentPane(panelPrincipal);
 	    panelPrincipal.setLayout(new BorderLayout(0, 0));
@@ -341,6 +343,12 @@ public class Tableroa extends JFrame{
 				
 			}
 		}
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
