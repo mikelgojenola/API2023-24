@@ -104,6 +104,7 @@ public class ListaJokalaria {
 			Karta k = null;
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			getZerrenda()[0].getEskukoKartak().gehituKarta(k);
+			//TODO
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			getZerrenda()[1].getEskukoKartak().gehituKarta(k);
 			kont--;
