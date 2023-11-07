@@ -106,8 +106,7 @@ public class ListaJokalaria {
 			kont--;
 		}
 	}		
-	
-	
+		
 	
 	//PARTIDA JOLASTU METODOA	
 	public static void partidaJolastu() {
