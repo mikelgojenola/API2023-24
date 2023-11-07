@@ -162,9 +162,9 @@ public class HasieraMenua extends JFrame {
 			if(e.getSource().equals(btnJokatu)) {
 				String nombre = HasieraMenua.this.txtfldNombre.getText();
 				int edad = Integer.parseInt(HasieraMenua.this.txtfldEdad.getText());
-				Tableroa tableroa = new Tableroa(nombre);
+				//Tableroa tableroa = new Tableroa(nombre);
 				frame.setVisible(false);
-				//-----------------------partidaPrestatu(nombre, edad);
+				partidaPrestatu(nombre, edad);
 				//ListaJokalaria.partidaJolastu(nombre,edad);
 			}
 		}
@@ -196,10 +196,11 @@ public class HasieraMenua extends JFrame {
 			m = 1;
 		}
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(n,e,j);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(tableroa);
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(tableroa);
 		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(tableroa);
-		ListaJokalaria.partidaJolastu();
+		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(tableroa);
+		ListaJokalaria.getNireListaJokalariak().addObserver(tableroa);
+		ListaJokalaria.partidaJolastu(j,m);
 	}
 	
 

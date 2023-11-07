@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -41,6 +42,16 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton btnKartaAldatu;
 	private JButton btnJokaldiaEgin;
 	private Controller controller;
+	private String image = null;
+	private JLabel lblFotoKarta1;
+	private JLabel lblFotoKarta2;
+	private JLabel lblFotoKarta3;
+	private JLabel lblFotoKarta4;
+	private JLabel lblFotoKarta5;
+	private JLabel lblFotoKarta6;
+	private JLabel lblFotoKarta7;
+	private JLabel lblFotoKarta8;
+	
 
 	
 	public Tableroa(String n) {
@@ -200,11 +211,11 @@ public class Tableroa extends JFrame implements Observer {
 			btnKarta1.add(new JLabel("Carta 1"), BorderLayout.NORTH);
 			
 			//--------------------------------------------------------------------------
-			ImageIcon imageIcon = new ImageIcon(HasieraMenua.class.getResource("/irudiak/Remy.png"));
-		    Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
-			JLabel lblFotoKarta1 = new JLabel();
-			lblFotoKarta1.setIcon(new ImageIcon(image));
-			btnKarta1.add(lblFotoKarta1, BorderLayout.SOUTH);
+			//ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource("/irudiak/Rata.png"));
+		    //Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+			//lblFotoKarta1 = new JLabel();
+			//lblFotoKarta1.setIcon(new ImageIcon(image));
+			//btnKarta1.add(lblFotoKarta1, BorderLayout.SOUTH);
 			//--------------------------------------------------------------------------
 		}
 		return btnKarta1;
@@ -219,11 +230,11 @@ public class Tableroa extends JFrame implements Observer {
 			btnKarta2.add(new JLabel("Carta 2"), BorderLayout.NORTH);
 			
 			//--------------------------------------------------------------------------
-			ImageIcon imageIcon = new ImageIcon(HasieraMenua.class.getResource("/irudiak/Skinner.png"));
-		    Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
-			JLabel lblFotoKarta2 = new JLabel();
-			lblFotoKarta2.setIcon(new ImageIcon(image));
-			btnKarta2.add(lblFotoKarta2, BorderLayout.SOUTH);
+			//ImageIcon imageIcon = new ImageIcon(HasieraMenua.class.getResource("/irudiak/Malo.png"));
+		    //Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+			//lblFotoKarta2 = new JLabel();
+			//lblFotoKarta2.setIcon(new ImageIcon(image));
+			//btnKarta2.add(lblFotoKarta2, BorderLayout.SOUTH);
 			//--------------------------------------------------------------------------
 		}
 		return btnKarta2;
@@ -339,16 +350,61 @@ public class Tableroa extends JFrame implements Observer {
 	
 	private class Controller implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource().equals(btnKarta1)) {
-				
+			if(e.getSource().equals(btnJokaldiaEgin)) {
+				//TODO 
 			}
 		}
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("INFORMAZIOAREN UPDATEAN SARTU NAIZ");
+		ArrayList<String> rr = (ArrayList<String>)arg;
+		System.out.println(arg);
+		System.out.println(rr.get(1));
+		for (int i=0;i<8;i++) {
+			if (rr.get(i).equals("Cocina")) {
+				this.image = "/irudiak/" + rr.get(i) + ".jpg";
+			} else {
+				this.image = "/irudiak/" + rr.get(i) + ".png";
+			}
+			System.out.println(this.image);
+			ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
+			Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+			if (i == 0) {
+				lblFotoKarta1 = new JLabel();
+				lblFotoKarta1.setIcon(new ImageIcon(image));
+				btnKarta1.add(lblFotoKarta1, BorderLayout.SOUTH);
+			} else if (i == 1) {
+				lblFotoKarta2 = new JLabel();
+				lblFotoKarta2.setIcon(new ImageIcon(image));
+				btnKarta2.add(lblFotoKarta2, BorderLayout.SOUTH);
+			} else if (i == 2) {
+				lblFotoKarta3 = new JLabel();
+				lblFotoKarta3.setIcon(new ImageIcon(image));
+				btnKarta3.add(lblFotoKarta3, BorderLayout.SOUTH);
+			} else if (i == 3) {
+				lblFotoKarta4 = new JLabel();
+				lblFotoKarta4.setIcon(new ImageIcon(image));
+				btnKarta4.add(lblFotoKarta4, BorderLayout.SOUTH);
+			} else if (i == 4) {
+				lblFotoKarta5 = new JLabel();
+				lblFotoKarta5.setIcon(new ImageIcon(image));
+				btnKarta5.add(lblFotoKarta5, BorderLayout.SOUTH);
+			} else if (i == 5) {
+				lblFotoKarta6 = new JLabel();
+				lblFotoKarta6.setIcon(new ImageIcon(image));
+				btnKarta6.add(lblFotoKarta6, BorderLayout.SOUTH);
+			} else if (i == 6) {
+				lblFotoKarta7 = new JLabel();
+				lblFotoKarta7.setIcon(new ImageIcon(image));
+				btnKarta7.add(lblFotoKarta7, BorderLayout.SOUTH);
+			} else if (i == 7) {
+				lblFotoKarta8 = new JLabel();
+				lblFotoKarta8.setIcon(new ImageIcon(image));
+				btnKarta8.add(lblFotoKarta8, BorderLayout.SOUTH);
+			}	
+		}
 	}
 
 }
