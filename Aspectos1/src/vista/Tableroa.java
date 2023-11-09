@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
+import model.ListaJokalaria;
+
 public class Tableroa extends JFrame implements Observer {
 	
 	//private static Tableroa frame;
@@ -354,6 +356,7 @@ public class Tableroa extends JFrame implements Observer {
 		if(btnKartaAldatu == null) {
 			btnKartaAldatu = new JButton();
 			btnKartaAldatu.setText("Karta aldatu");
+			btnKartaAldatu.addActionListener(getController());
 		}
 		return btnKartaAldatu;
 	}
@@ -362,6 +365,7 @@ public class Tableroa extends JFrame implements Observer {
 		if(btnJokaldiaEgin == null) {
 			btnJokaldiaEgin = new JButton();
 			btnJokaldiaEgin.setText("Jokaldia egin");
+			btnJokaldiaEgin.addActionListener(getController());
 		}
 		return btnJokaldiaEgin;
 	}
@@ -369,7 +373,27 @@ public class Tableroa extends JFrame implements Observer {
 	private class Controller implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(btnJokaldiaEgin)) {
-				//TODO 
+				ArrayList<Integer> jokaldiKartak = new ArrayList<Integer>();
+				if(getBtnKarta1().isSelected()) {
+					jokaldiKartak.add(1);
+				}
+				if(getBtnKarta1().isSelected()) {
+					jokaldiKartak.add(2);
+				}
+				if(getBtnKarta1().isSelected()) {
+					jokaldiKartak.add(3);
+				}
+				if(getBtnKarta1().isSelected()) {
+					jokaldiKartak.add(4);
+				}
+				ListaJokalaria.rondaJolastu2(jokaldiKartak);
+				getBtnKarta1().setSelected(false);
+				getBtnKarta2().setSelected(false);
+				getBtnKarta3().setSelected(false);
+				getBtnKarta4().setSelected(false);
+			}
+			else if(e.getSource().equals(btnKartaAldatu)) {
+				
 			}
 		}
 	}

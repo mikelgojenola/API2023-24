@@ -86,5 +86,44 @@ public class Konbinazioak {
 		}
 		return erantzuna;
 	}	
+	
+	public boolean konbinazioNormalikAhalDago2(ListaKarta listaKarta, int arrautzaKop, int jokalaria)  {
+
+		boolean erantzuna = false;
+		
+		int kont = 0;
+		int chefKop = 0;
+		int rataKop = 0;
+		int cocinaKop = 0;
+		int maloKop = 0;
+		
+		for(int j = 0; j < listaKarta.getTamaina(); j++) {
+			if(listaKarta.getKarta(j).getMota().equals(KartaMotak.Chef)) {
+				chefKop++;
+			}
+			if(listaKarta.getKarta(j).getMota().equals(KartaMotak.Rata)) {
+				rataKop++;
+			}
+			if(listaKarta.getKarta(j).getMota().equals(KartaMotak.Cocina)) {
+				cocinaKop++;
+			}
+			if(listaKarta.getKarta(j).getMota().equals(KartaMotak.Malo)) {
+				maloKop++;
+			}
+		}
+		
+		if(chefKop >= 2) {
+			erantzuna = true;
+			konbinazioMota = 1;
+		} else if(chefKop >= 1 && rataKop >= 1 && cocinaKop >= 1) {
+			erantzuna = true;
+			konbinazioMota = 2;
+		} else if(maloKop >= 1) {
+			erantzuna = true;
+			konbinazioMota = 3;
+		}
+		
+		return erantzuna;
+	}
 }				
 

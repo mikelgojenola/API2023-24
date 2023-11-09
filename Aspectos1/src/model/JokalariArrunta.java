@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class JokalariArrunta extends Jokalaria {
 	
 	//ATRIBUTUAK
@@ -22,25 +24,25 @@ public class JokalariArrunta extends Jokalaria {
 			i = 0;
 		}
 		System.out.println("Zure eskuko kartak:");
-		System.out.println("╔═════════════════════════╗");
+		System.out.println("â•”â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•—");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("╠═════════════════════════╣");
-		System.out.print("║");
+		System.out.println("â• â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•£");
+		System.out.print("â•‘");
 		System.out.print(" Arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
 		System.out.print(this.puntuak);
-		System.out.println(" ║");
-		System.out.println("╚═════════════════════════╝");	
+		System.out.println(" â•‘");
+		System.out.println("â•šâ•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�");	
 		System.out.println("IA-ren arrautzak:");
-		System.out.println("╔═════════════════════════╗");
-		System.out.print("║");
+		System.out.println("â•”â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•—");
+		System.out.print("â•‘");
 		System.out.print(" Arrautzak:");
 		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].arrautzaKop);
 		System.out.print("    Txitak:");
 		System.out.print(ListaJokalaria.getNireListaJokalariak().getZerrenda()[i].puntuak);
-		System.out.println(" ║");
-		System.out.println("╚═════════════════════════╝");
+		System.out.println(" â•‘");
+		System.out.println("â•šâ•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�");
 		
 	}
 	
@@ -60,7 +62,6 @@ public class JokalariArrunta extends Jokalaria {
 		imprimatuEskua();
 		//while (aukera != 1 || aukera != 2) {
 		while (aukera != 1 && aukera != 2) {
-			System.out.println("3333333333333333333333333333333333333333");
 			if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
 				System.out.println("Aukeratu karta bat baztertzeko eta berri bat hartu multzotik");			
 				s1 = Teklatua.getNireTeklatua().irakurriOsoa();
@@ -90,48 +91,86 @@ public class JokalariArrunta extends Jokalaria {
 					imprimatuEskua();
 				}else if(aukera == 2) {
 					System.out.println("Aukeratu kartak jokaldia egiteko:");
-				int i = 0;
-				ListaKarta lista = new ListaKarta();
-				s2 = Teklatua.getNireTeklatua().irakurriOsoa();
-				lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));
-				while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, this.arrautzaKop, txandaZenbakia)) {
+					int i = 0;
+					ListaKarta lista = new ListaKarta();
 					s2 = Teklatua.getNireTeklatua().irakurriOsoa();
-					lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));		
-					i++;
-					if (i == 3 ) {
-						System.out.println("Konbinazio okerra");
-						lista.erreseteatu();
-						i = -1;
+					lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));
+					while (!this.getKonbinazioak().konbinazioNormalikAhalDago(lista, this.arrautzaKop, txandaZenbakia)) {
+						s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+						lista.gehituKarta(this.getEskukoKartak().getKarta(s2-1));		
+						i++;
+						if (i == 3 ) {
+							System.out.println("Konbinazio okerra");
+							lista.erreseteatu();
+							i = -1;
+						}
 					}
-				}
-				if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					this.getEskukoArrautzak().arrautzaKendu(0);
-					this.puntuak++;
-					this.arrautzaKop--;
-					imprimatuEskua();
-				} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-					this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-					this.arrautzaKop++;
-					imprimatuEskua();				
-				}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
-					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
-					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
-					this.azeriaErabiliDu = true;				
+					if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						this.getEskukoArrautzak().arrautzaKendu(0);
+						this.puntuak++;
+						this.arrautzaKop--;
+						imprimatuEskua();
+					} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Rata));
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+						this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+						this.arrautzaKop++;
+						imprimatuEskua();				
+					}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
+						this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Malo));
+						this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
+						this.azeriaErabiliDu = true;				
+					}
 				}
 			}
 		}
 	}
-}
+	
+	public void jokaldiaEgin2(ArrayList<Integer> jokaldiKartak) {
+		ListaKarta lista = new ListaKarta();
+		for(int i = 0; i < jokaldiKartak.size(); i++) {
+			Karta k = this.getEskukoKartak().getKarta(i);
+			lista.gehituKarta(k);
+		}
+		if (!this.getKonbinazioak().konbinazioNormalikAhalDago2(lista, this.arrautzaKop, txandaZenbakia)) {
+
+		}
+		else {
+			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().arrautzaKendu(0);
+				this.puntuak++;
+				this.arrautzaKop--;
+				imprimatuEskua();
+			} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Rata));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+				this.arrautzaKop++;
+				imprimatuEskua();				
+			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Malo));
+				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
+				this.azeriaErabiliDu = true;				
+			}
+		}
+	}
+
 	
 	
 	
