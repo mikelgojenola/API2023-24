@@ -2,8 +2,9 @@ package model;
 
 import java.util.Observable;
 
-public abstract class Jokalaria extends Observable{
-	
+//public abstract class Jokalaria extends Observable{
+public abstract class Jokalaria{
+		
 	//ATRIBUTUAK
 	private int adina;
 	private Konbinazioak konbi;
@@ -85,10 +86,11 @@ public abstract class Jokalaria extends Observable{
 	//IRABAZLE MEZUA METODOA
 	protected abstract void irabazleMezua();
 	
+	/*
 	public void eguneratu() {
 		setChanged();
 		//notifyObservers(new String[] {Meter las 4 cartas en orden para poner las fotos});
 	}
-	
+	*/
 	
 }

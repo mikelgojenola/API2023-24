@@ -1,6 +1,9 @@
 package model;
 
 
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 
 import vista.HasieraMenua;
@@ -9,9 +12,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-public class ListaJokalaria {
+public class ListaJokalaria extends Observable{
 	
 	//ATRIBUTUAK
+	private static int m;
+	private static int j;
 	private static Jokalaria[]lista;
 	private static ListaJokalaria nireListaJokalaria = null;
 	private int jokalariKop = 2;
@@ -23,7 +28,7 @@ public class ListaJokalaria {
 	
 	//BESTE METODOAK
 	//GET NIRE LISTA JOKALARIAK METODOA	
-	public static synchronized ListaJokalaria getNireListaJokalariak() {
+	public static ListaJokalaria getNireListaJokalariak() {
 		if (ListaJokalaria.nireListaJokalaria == null) {
 			ListaJokalaria.nireListaJokalaria = new ListaJokalaria();
 		}
@@ -100,20 +105,40 @@ public class ListaJokalaria {
 	//KARTAK BANATU METODOA
 	public static void kartakBanatu() {
 		int kont = 4;
+		ArrayList<String> listaJok = new ArrayList<String>();
+		ArrayList<String> listaPC = new ArrayList<String>();
+		ArrayList<String> listaKonbinao = new ArrayList<String>();
 		while (kont > 0) {
 			Karta k = null;
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			getZerrenda()[0].getEskukoKartak().gehituKarta(k);
-			//TODO
+			if (m == 0) {
+				listaPC.add(k.mota.toString());
+			}else {
+				listaJok.add(k.mota.toString());
+			}
 			k = HasierakoBaraja.getNireHasierakoBaraja().banaketa();
 			getZerrenda()[1].getEskukoKartak().gehituKarta(k);
+			if (m == 1) {
+				listaPC.add(k.mota.toString());
+			}else {
+				listaJok.add(k.mota.toString());
+			}
 			kont--;
 		}
+		listaKonbinao.addAll(listaJok);
+		listaKonbinao.addAll(listaPC);
+		//TODO listaKonbinao.add(Integer.toString(platos y lo mismo con dinero))
+		//eguneratuar bista
+		ListaJokalaria.getNireListaJokalariak().setChanged();
+		ListaJokalaria.getNireListaJokalariak().notifyObservers(listaKonbinao);
 	}		
-		
+
 	
 	//PARTIDA JOLASTU METODOA	
-	public static void partidaJolastu() {
+	public static void partidaJolastu(int jok, int pc) {
+		j = jok;
+		m = pc;
 		//int j,m;
 		//System.out.println("Sartu zure nick-a");
 		//String izena = Teklatua.getNireTeklatua().irakurriString();
