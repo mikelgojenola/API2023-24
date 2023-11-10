@@ -168,6 +168,9 @@ public class ListaJokalaria extends Observable{
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(Tableroa);
 		jokoaBerrabiarazi();
 		kartakBanatu();
+		if(m == 0) {
+			lehenRondaJolastu();
+		}
 		while (!bukaera()) {
 			rondaJolastu();		
 		}
@@ -197,20 +200,34 @@ public class ListaJokalaria extends Observable{
 		return erantzuna;
 	}
 	
+	private static void lehenRondaJolastu() {
+		getZerrenda()[0].jokaldiaEgin();
+		if (getZerrenda()[0].getAzeriaErabiliDu()) {
+			if (!getZerrenda()[1].jokaldiExtraEgin()) {
+				Arrautza a = new Arrautza(false);
+				getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+				getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
+				getZerrenda()[0].arrautzaKop++;
+				getZerrenda()[1].arrautzaKop--; 
+			}
+			getZerrenda()[0].imprimatuEskua();
+		}	
+	}
+	
 	//RONDA JOLASTU METODOA
 	public static void rondaJolastu() {	
 		System.out.println("---------------------------------------------------");
-			getZerrenda()[0].jokaldiaEgin();
-			if (getZerrenda()[0].getAzeriaErabiliDu()) {
-				if (!getZerrenda()[1].jokaldiExtraEgin()) {
-					Arrautza a = new Arrautza(false);
-					getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
-					getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
-					getZerrenda()[0].arrautzaKop++;
-					getZerrenda()[1].arrautzaKop--; 
-				}
-				getZerrenda()[0].imprimatuEskua();
-			}		
+		getZerrenda()[0].jokaldiaEgin();
+		if (getZerrenda()[0].getAzeriaErabiliDu()) {
+			if (!getZerrenda()[1].jokaldiExtraEgin()) {
+				Arrautza a = new Arrautza(false);
+				getZerrenda()[0].getEskukoArrautzak().gehituArrautza(a);
+				getZerrenda()[1].getEskukoArrautzak().arrautzaKendu(0);
+				getZerrenda()[0].arrautzaKop++;
+				getZerrenda()[1].arrautzaKop--; 
+			}
+			getZerrenda()[0].imprimatuEskua();
+		}		
 		if (getZerrenda()[0].getPuntuak() != 3) {
 			getZerrenda()[1].jokaldiaEgin();
 			if (getZerrenda()[1].getAzeriaErabiliDu()) {
@@ -220,7 +237,7 @@ public class ListaJokalaria extends Observable{
 					getZerrenda()[0].getEskukoArrautzak().arrautzaKendu(0);
 					getZerrenda()[1].arrautzaKop++;
 					getZerrenda()[0].arrautzaKop--; 
-					
+
 				}	
 				getZerrenda()[1].imprimatuEskua();
 			}
@@ -228,6 +245,38 @@ public class ListaJokalaria extends Observable{
 			System.out.println("Jokua bukatu da");
 			getZerrenda()[0].irabazleMezua();
 		}
+
+	}
+	
+	public static void rondaJolastu2(ArrayList<Integer> jokaldiKartak) {
+		getZerrenda()[j].jokaldiaEgin2(jokaldiKartak);
+		if (getZerrenda()[j].getAzeriaErabiliDu()) {
+			if (!getZerrenda()[m].jokaldiExtraEgin()) {
+				Arrautza a = new Arrautza(false);
+				getZerrenda()[j].getEskukoArrautzak().gehituArrautza(a);
+				getZerrenda()[m].getEskukoArrautzak().arrautzaKendu(0);
+				getZerrenda()[j].arrautzaKop++;
+				getZerrenda()[m].arrautzaKop--; 
+			}
+			getZerrenda()[j].imprimatuEskua();
+		}
 		
+		if (getZerrenda()[j].getPuntuak() != 3) {
+			getZerrenda()[m].jokaldiaEgin();
+			if (getZerrenda()[m].getAzeriaErabiliDu()) {
+				if (!getZerrenda()[j].jokaldiExtraEgin()) {
+					Arrautza a = new Arrautza(false);
+					getZerrenda()[m].getEskukoArrautzak().gehituArrautza(a);
+					getZerrenda()[j].getEskukoArrautzak().arrautzaKendu(0);
+					getZerrenda()[m].arrautzaKop++;
+					getZerrenda()[j].arrautzaKop--; 
+
+				}	
+				getZerrenda()[1].imprimatuEskua();
+			}
+		}else {
+			System.out.println("Jokua bukatu da");
+			getZerrenda()[0].irabazleMezua();
+		}
 	}
 }

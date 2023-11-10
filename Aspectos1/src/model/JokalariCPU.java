@@ -1,6 +1,7 @@
 package model;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class JokalariCPU extends Jokalaria{
@@ -23,7 +24,7 @@ public class JokalariCPU extends Jokalaria{
 		this.azeriaErabiliDu = false;
 		Karta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoKarta;
 		//imprimatuEskua();
-		if(!this.getKonbinazioak().konbinazioNormalikAhalDago(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
+		if(!this.getKonbinazioak().konbinazioNormalikAhalDago2(getEskukoKartak(),this.arrautzaKop, txandaZenbakia)) {
 			Iterator<Karta> itr = this.getEskukoKartak().getIteradorea();
 			while (itr.hasNext()) {
 				k1 = itr.next();
@@ -38,8 +39,8 @@ public class JokalariCPU extends Jokalaria{
 			System.out.println("Makinak karta bat baztertu du eta beste bat hartu du.");
 		}else {
 			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//doble oilo
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());			
 				this.puntuak++;
@@ -48,9 +49,9 @@ public class JokalariCPU extends Jokalaria{
 				System.out.println("Makinak bi oilo erabili ditu arrautza bat txita bihurtzeko.");
 				
 			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilo"));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Oilar"));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Habia"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Rata));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
@@ -60,13 +61,17 @@ public class JokalariCPU extends Jokalaria{
 				System.out.println("Makinak oilo bat, oilar bat eta habia bat erabili ditu arrautza bat hartzeko.");
 				
 			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3){//zorro
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda("Azeria"));
+				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
 				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());					
 				this.azeriaErabiliDu = true;
 				System.out.println("Makinak azeri bat erabili du zuri arrautza bat lapurtzeko.");
 			}
 		}
 		
+	}
+	
+	public void jokaldiaEgin2(ArrayList<Integer> jokaldiKartak) {
+		//TODO
 	}
 	
 	
@@ -117,16 +122,16 @@ public class JokalariCPU extends Jokalaria{
 	public void imprimatuEskua() {
 		System.out.println("Makinaren kartak:");
 		System.out.println(" ");
-		System.out.println("╔═══════════════════════════════╗");
+		System.out.println("â•”â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•—");
 		this.getEskukoKartak().imprimatuKartak();
-		System.out.println("╠═══════════════════════════════╣");
-		System.out.print("║");
+		System.out.println("â• â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•£");
+		System.out.print("â•‘");
 		System.out.print("IA-ren arrautzak:");
 		System.out.print(this.arrautzaKop);
 		System.out.print("    Txitak:");
 		System.out.print(this.puntuak);
-		System.out.println(" ║");
-		System.out.println("╚═══════════════════════════════╝");
+		System.out.println(" â•‘");
+		System.out.println("â•šâ•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�â•�");
 		System.out.println(" ");
 	}
 

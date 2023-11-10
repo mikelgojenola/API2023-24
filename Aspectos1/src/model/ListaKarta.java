@@ -21,6 +21,11 @@ public class ListaKarta {
 		return k;
 	}
 	
+	//GET KARTA KOPURUA
+	public int getTamaina() {
+		return lista.size();
+	}
+	
 	//KENDU KARTA METODOA
 	public void kenduKartaZenbakiz(int pPos) {
 		lista.remove(pPos);

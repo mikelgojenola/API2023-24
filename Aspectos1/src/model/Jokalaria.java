@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 //public abstract class Jokalaria extends Observable{
@@ -75,6 +76,8 @@ public abstract class Jokalaria{
 	
 	//JOKALDIA EGIN METODOA
 	protected abstract void jokaldiaEgin();
+	
+	protected abstract void jokaldiaEgin2(ArrayList<Integer> jokaldiKartak);
 	
 	//JOKALDI EXTRA EGIN METODOA
 	protected abstract boolean jokaldiExtraEgin();
