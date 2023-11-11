@@ -86,17 +86,21 @@ public class Tableroa extends JFrame implements Observer {
 			
 			
 			//--------------------------------------------------------------------------
+			
+			JLabel lblFotoPlato = new JLabel();
+			panelPCInfo.add(lblFotoPlato);
 			ImageIcon imageIcon1 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato1.png"));
 		    Image image1 = imageIcon1.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoPlato = new JLabel();
 			lblFotoPlato.setIcon(new ImageIcon(image1));
-			panelPCInfo.add(lblFotoPlato);
+
 			
+			
+			JLabel lblFotoPlato2 = new JLabel();
+			panelPCInfo.add(lblFotoPlato2);
 			ImageIcon imageIcon2 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato2.png"));
 		    Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoPlato2 = new JLabel();
 			lblFotoPlato2.setIcon(new ImageIcon(image2));
-			panelPCInfo.add(lblFotoPlato2);
+
 			//--------------------------------------------------------------------------
 
 			
@@ -104,11 +108,12 @@ public class Tableroa extends JFrame implements Observer {
 			
 			
 			//--------------------------------------------------------------------------
+
+			JLabel lblFotoDinero = new JLabel();
+			panelPCInfo.add(lblFotoDinero);
 			ImageIcon imageIcon3 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/dinero.png"));
 		    Image image3 = imageIcon3.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoDinero = new JLabel();
 			lblFotoDinero.setIcon(new ImageIcon(image3));
-			panelPCInfo.add(lblFotoDinero);
 			//--------------------------------------------------------------------------
 			
 			panelPC.add(panelPCInfo, BorderLayout.NORTH);
@@ -373,27 +378,53 @@ public class Tableroa extends JFrame implements Observer {
 	private class Controller implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(btnJokaldiaEgin)) {
-				ArrayList<Integer> jokaldiKartak = new ArrayList<Integer>();
+				ArrayList<Integer> jokaldiKartakPos = new ArrayList<Integer>();
 				if(getBtnKarta1().isSelected()) {
-					jokaldiKartak.add(1);
+					jokaldiKartakPos.add(1);
 				}
-				if(getBtnKarta1().isSelected()) {
-					jokaldiKartak.add(2);
+				if(getBtnKarta2().isSelected()) {
+					jokaldiKartakPos.add(2);
 				}
-				if(getBtnKarta1().isSelected()) {
-					jokaldiKartak.add(3);
+				if(getBtnKarta3().isSelected()) {
+					jokaldiKartakPos.add(3);
 				}
-				if(getBtnKarta1().isSelected()) {
-					jokaldiKartak.add(4);
+				if(getBtnKarta4().isSelected()) {
+					jokaldiKartakPos.add(4);
 				}
-				ListaJokalaria.rondaJolastu2(jokaldiKartak);
 				getBtnKarta1().setSelected(false);
 				getBtnKarta2().setSelected(false);
 				getBtnKarta3().setSelected(false);
 				getBtnKarta4().setSelected(false);
+				ListaJokalaria.rondaJolastu2(jokaldiKartakPos);
+				
 			}
 			else if(e.getSource().equals(btnKartaAldatu)) {
-				
+				ArrayList<Integer> jokaldiKartakPos = new ArrayList<Integer>();
+				if(getBtnKarta1().isSelected()) {
+					jokaldiKartakPos.add(1);
+				}
+				if(getBtnKarta2().isSelected()) {
+					jokaldiKartakPos.add(2);
+				}
+				if(getBtnKarta3().isSelected()) {
+					jokaldiKartakPos.add(3);
+				}
+				if(getBtnKarta4().isSelected()) {
+					jokaldiKartakPos.add(4);
+				}
+				getBtnKarta1().setSelected(false);
+				getBtnKarta2().setSelected(false);
+				getBtnKarta3().setSelected(false);
+				getBtnKarta4().setSelected(false);
+				if(jokaldiKartakPos.size() == 1) {
+					jokaldiKartakPos.add(-1);
+					jokaldiKartakPos.add(-1);
+					jokaldiKartakPos.add(-1);
+					jokaldiKartakPos.add(-1);
+					ListaJokalaria.rondaJolastu2(jokaldiKartakPos);
+				} else {
+					System.out.println("¡Tienes que elegir UNA carta para descartar!");
+				}
 			}
 		}
 	}
@@ -404,7 +435,7 @@ public class Tableroa extends JFrame implements Observer {
 		ArrayList<String> rr = (ArrayList<String>)arg;
 		System.out.println(arg);
 		System.out.println(rr.get(1));
-		for (int i=0;i<8;i++) {
+		for (int i=0;i<rr.size();i++) {
 			if (rr.get(i).equals("Cocina")) {
 				this.image = "/irudiak/" + rr.get(i) + ".jpg";
 			} else {
@@ -437,7 +468,8 @@ public class Tableroa extends JFrame implements Observer {
 			} else if (i == 7) {
 				lblFotoKarta8.setIcon(new ImageIcon(image));
 				//btnKarta8.add(lblFotoKarta8, BorderLayout.SOUTH);
-			}	
+			}
+			
 		}
 	}
 

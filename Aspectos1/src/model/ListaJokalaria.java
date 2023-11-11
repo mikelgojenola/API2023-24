@@ -248,6 +248,7 @@ public class ListaJokalaria extends Observable{
 	}
 	
 	public static void rondaJolastu2(ArrayList<Integer> jokaldiKartak) {
+
 		getZerrenda()[j].jokaldiaEgin2(jokaldiKartak);
 		if (getZerrenda()[j].getAzeriaErabiliDu()) {
 			if (!getZerrenda()[m].jokaldiExtraEgin()) {
@@ -258,7 +259,9 @@ public class ListaJokalaria extends Observable{
 				getZerrenda()[m].arrautzaKop--; 
 			}
 			getZerrenda()[j].imprimatuEskua();
+			getZerrenda()[j].resetAzeria();
 		}
+		
 		
 		if (getZerrenda()[j].getPuntuak() != 3) {
 			getZerrenda()[m].jokaldiaEgin();
@@ -272,10 +275,59 @@ public class ListaJokalaria extends Observable{
 
 				}	
 				getZerrenda()[1].imprimatuEskua();
+				getZerrenda()[m].resetAzeria();
 			}
+			System.out.println("333333333333333333333333333333333333333333333333");
+			System.out.println("####################################################");
+			System.out.println(getZerrenda()[j].getEskukoKartak().getTamaina());
+			System.out.println("####################################################");
 		}else {
 			System.out.println("Jokua bukatu da");
 			getZerrenda()[0].irabazleMezua();
 		}
+		
+		ArrayList<String> listaInfo = getInfoUpdate();
+		ListaJokalaria.getNireListaJokalariak().setChanged();
+		ListaJokalaria.getNireListaJokalariak().notifyObservers(listaInfo);
+	}
+	
+	private static ArrayList<String> getInfoUpdate() {
+		int kont = 4;
+		ArrayList<String> listaJok = new ArrayList<String>();
+		ArrayList<String> listaPC = new ArrayList<String>();
+		ArrayList<String> listaKonbinao = new ArrayList<String>();
+		while (kont > 0) {
+			Karta k = null;
+			k = getZerrenda()[0].getEskukoKartak().getKarta(4-kont);
+			if (m == 0) {
+				listaPC.add(k.mota.toString());
+			}else {
+				listaJok.add(k.mota.toString());
+			}
+			k = getZerrenda()[1].getEskukoKartak().getKarta(4-kont);
+			if (m == 1) {
+				listaPC.add(k.mota.toString());
+			}else {
+				listaJok.add(k.mota.toString());
+			}
+			kont--;
+		}
+		listaKonbinao.addAll(listaJok);
+		listaKonbinao.addAll(listaPC);
+		
+		if(m == 1) {
+			listaKonbinao.add(String.valueOf(getZerrenda()[0].arrautzaKop));
+			listaKonbinao.add(String.valueOf(getZerrenda()[0].puntuak));
+			listaKonbinao.add(String.valueOf(getZerrenda()[1].arrautzaKop));
+			listaKonbinao.add(String.valueOf(getZerrenda()[1].puntuak));
+		} else {
+			listaKonbinao.add(String.valueOf(getZerrenda()[1].arrautzaKop));
+			listaKonbinao.add(String.valueOf(getZerrenda()[1].puntuak));
+			listaKonbinao.add(String.valueOf(getZerrenda()[0].arrautzaKop));
+			listaKonbinao.add(String.valueOf(getZerrenda()[0].puntuak));
+		}
+		
+		
+		return listaKonbinao;
 	}
 }

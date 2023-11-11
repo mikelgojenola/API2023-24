@@ -135,40 +135,51 @@ public class JokalariArrunta extends Jokalaria {
 	}
 	
 	public void jokaldiaEgin2(ArrayList<Integer> jokaldiKartak) {
-		ListaKarta lista = new ListaKarta();
-		for(int i = 0; i < jokaldiKartak.size(); i++) {
-			Karta k = this.getEskukoKartak().getKarta(i);
-			lista.gehituKarta(k);
-		}
-		if (!this.getKonbinazioak().konbinazioNormalikAhalDago2(lista, this.arrautzaKop, txandaZenbakia)) {
-
-		}
-		else {
-			if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().arrautzaKendu(0);
-				this.puntuak++;
-				this.arrautzaKop--;
-				imprimatuEskua();
-			} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Rata));
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
-				this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
-				this.arrautzaKop++;
-				imprimatuEskua();				
-			}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
-				this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Malo));
-				this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
-				this.azeriaErabiliDu = true;				
+		if(jokaldiKartak.size() == 5) {
+			deskartatu(jokaldiKartak.get(0));
+		} else {
+			ListaKarta lista = new ListaKarta();
+			for(int i = 0; i < jokaldiKartak.size(); i++) {
+				Karta k = this.getEskukoKartak().getKarta(jokaldiKartak.get(i)-1);
+				lista.gehituKarta(k);
+			}
+			if (!this.getKonbinazioak().konbinazioNormalikAhalDago2(lista, this.arrautzaKop, txandaZenbakia)) {
+	
+			}
+			else {
+				if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 1) {//oilo oilo
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					this.getEskukoArrautzak().arrautzaKendu(0);
+					this.puntuak++;
+					this.arrautzaKop--;
+					imprimatuEskua();
+				} else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 2) {//oilo oilar habia
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Chef));
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Rata));
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Cocina));
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+					this.getEskukoArrautzak().gehituArrautza(ListaArrautzaHartzeko.getNireListaArrautzaHartzeko().banaketa());
+					this.arrautzaKop++;
+					imprimatuEskua();				
+				}else if (Konbinazioak.getNireKonbinazioak().getKonbinazioMota() == 3) {//zorro
+					this.getEskukoKartak().kenduKartaKartaz(this.getEskukoKartak().baztertuKartaMotaJakinda(KartaMotak.Malo));
+					this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());						
+					this.azeriaErabiliDu = true;	
+					imprimatuEskua();				
+				}
 			}
 		}
+	}
+	
+	public void deskartatu(int kPos) {
+		this.getEskukoKartak().kenduKartaZenbakiz(kPos-1);	
+		this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());			
+		imprimatuEskua();
 	}
 
 	
