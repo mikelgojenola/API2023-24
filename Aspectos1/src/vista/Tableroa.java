@@ -53,6 +53,22 @@ public class Tableroa extends JFrame implements Observer {
 	private JLabel lblFotoCarta6;
 	private JLabel lblFotoCarta7;
 	private JLabel lblFotoCarta8;
+	private JLabel lblFotoPlato1;
+	private JLabel lblFotoPlato2;
+	private JLabel lblFotoPlato3;
+	private JLabel lblFotoPlato4;
+	private JLabel lblFotoPlato5;
+	private JLabel lblFotoPlato1PC;
+	private JLabel lblFotoPlato2PC;
+	private JLabel lblFotoPlato3PC;
+	private JLabel lblFotoPlato4PC;
+	private JLabel lblFotoPlato5PC;
+	private JLabel lblFotoDinero1;
+	private JLabel lblFotoDinero2;
+	private JLabel lblFotoDinero3;
+	private JLabel lblFotoDinero1PC;
+	private JLabel lblFotoDinero2PC;
+	private JLabel lblFotoDinero3PC;
 	
 
 	
@@ -87,33 +103,39 @@ public class Tableroa extends JFrame implements Observer {
 			
 			//--------------------------------------------------------------------------
 			
-			JLabel lblFotoPlato = new JLabel();
-			panelPCInfo.add(lblFotoPlato);
-			ImageIcon imageIcon1 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato1.png"));
-		    Image image1 = imageIcon1.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			lblFotoPlato.setIcon(new ImageIcon(image1));
-
+			lblFotoPlato1PC = new JLabel();
+			panelPCInfo.add(lblFotoPlato1PC);
+			
+			lblFotoPlato2PC = new JLabel();
+			panelPCInfo.add(lblFotoPlato2PC);
 			
 			
-			JLabel lblFotoPlato2 = new JLabel();
-			panelPCInfo.add(lblFotoPlato2);
-			ImageIcon imageIcon2 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato2.png"));
-		    Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			lblFotoPlato2.setIcon(new ImageIcon(image2));
-
+			lblFotoPlato3PC = new JLabel();
+			panelPCInfo.add(lblFotoPlato3PC);
+			
+			lblFotoPlato4PC = new JLabel();
+			panelPCInfo.add(lblFotoPlato4PC);
+			
+			lblFotoPlato5PC = new JLabel();
+			panelPCInfo.add(lblFotoPlato5PC);
+			
 			//--------------------------------------------------------------------------
 
 			
 			panelPCInfo.add(new JLabel("Dinero: "));
 			
+			lblFotoDinero1PC = new JLabel();
+			panelPCInfo.add(lblFotoDinero1PC);
+			
+			lblFotoDinero2PC = new JLabel();
+			panelPCInfo.add(lblFotoDinero2PC);
+			
+			lblFotoDinero3PC = new JLabel();
+			panelPCInfo.add(lblFotoDinero3PC);
 			
 			//--------------------------------------------------------------------------
 
-			JLabel lblFotoDinero = new JLabel();
-			panelPCInfo.add(lblFotoDinero);
-			ImageIcon imageIcon3 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/dinero.png"));
-		    Image image3 = imageIcon3.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			lblFotoDinero.setIcon(new ImageIcon(image3));
+			
 			//--------------------------------------------------------------------------
 			
 			panelPC.add(panelPCInfo, BorderLayout.NORTH);
@@ -176,33 +198,40 @@ public class Tableroa extends JFrame implements Observer {
 			
 			
 			//--------------------------------------------------------------------------
-			ImageIcon imageIcon4 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato3.png"));
-		    Image image4 = imageIcon4.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoPlato = new JLabel();
-			lblFotoPlato.setIcon(new ImageIcon(image4));
-			panelJokInfo.add(lblFotoPlato);
-			
-			ImageIcon imageIcon5 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/plato1.png"));
-		    Image image5 = imageIcon5.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoPlato2 = new JLabel();
-			lblFotoPlato2.setIcon(new ImageIcon(image5));
+			lblFotoPlato1 = new JLabel();
+			panelJokInfo.add(lblFotoPlato1);
+
+			lblFotoPlato2 = new JLabel();
 			panelJokInfo.add(lblFotoPlato2);
+			
+			
+			lblFotoPlato3 = new JLabel();
+			panelJokInfo.add(lblFotoPlato3);
+			
+			lblFotoPlato4 = new JLabel();
+			panelJokInfo.add(lblFotoPlato4);
+			
+			lblFotoPlato5 = new JLabel();
+			panelJokInfo.add(lblFotoPlato5);
+			
 			//--------------------------------------------------------------------------
 
 			
 			panelJokInfo.add(new JLabel("Dinero: "));
 			
 			
-			//--------------------------------------------------------------------------
-			ImageIcon imageIcon6 = new ImageIcon(HasieraMenua.class.getResource("/irudiak/dinero.png"));
-		    Image image6 = imageIcon6.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-			JLabel lblFotoDinero = new JLabel();
-			lblFotoDinero.setIcon(new ImageIcon(image6));
-			panelJokInfo.add(lblFotoDinero);
+			lblFotoDinero1 = new JLabel();
+			panelJokInfo.add(lblFotoDinero1);
 			
-			JLabel lblDinero2 = new JLabel();
-			lblDinero2.setIcon(new ImageIcon(image6));
-			panelJokInfo.add(lblDinero2);
+			lblFotoDinero2 = new JLabel();
+			panelJokInfo.add(lblFotoDinero2);
+			
+			lblFotoDinero3 = new JLabel();
+			panelJokInfo.add(lblFotoDinero3);
+			
+			
+			//--------------------------------------------------------------------------
+		
 			//--------------------------------------------------------------------------
 
 		}
@@ -434,43 +463,162 @@ public class Tableroa extends JFrame implements Observer {
 		System.out.println("INFORMAZIOAREN UPDATEAN SARTU NAIZ");
 		ArrayList<String> rr = (ArrayList<String>)arg;
 		System.out.println(arg);
-		System.out.println(rr.get(1));
+		System.out.println(rr.size());
+		
 		for (int i=0;i<rr.size();i++) {
-			if (rr.get(i).equals("Cocina")) {
-				this.image = "/irudiak/" + rr.get(i) + ".jpg";
-			} else {
-				this.image = "/irudiak/" + rr.get(i) + ".png";
+			
+			if (i < 8) {
+				if (rr.get(i).equals("Cocina")) {
+					this.image = "/irudiak/" + rr.get(i) + ".jpg";
+				} else {
+					this.image = "/irudiak/" + rr.get(i) + ".png";
+				}
+				System.out.println(this.image);
+				ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
+				Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+				
+				if (i == 0) {
+					lblFotoCarta1.setIcon(new ImageIcon(image));
+					//btnCarta1.add(lblFotoCarta1, BorderLayout.SOUTH);
+				} 
+				if (i == 1) {
+					lblFotoCarta2.setIcon(new ImageIcon(image));
+					//btnCarta2.add(lblFotoCarta2, BorderLayout.SOUTH);
+				} 
+				if (i == 2) {
+					lblFotoCarta3.setIcon(new ImageIcon(image));
+					//btnCarta3.add(lblFotoCarta3, BorderLayout.SOUTH);
+				} 
+				if (i == 3) {
+					lblFotoCarta4.setIcon(new ImageIcon(image));
+					//btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
+				} 
+				if (i == 4) {
+					lblFotoCarta5.setIcon(new ImageIcon(image));
+					//btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
+				} 
+				if (i == 5) {
+					lblFotoCarta6.setIcon(new ImageIcon(image));
+					//btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
+				} 
+				if (i == 6) {
+					lblFotoCarta7.setIcon(new ImageIcon(image));
+					//btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
+				} 
+				if (i == 7) {
+					lblFotoCarta8.setIcon(new ImageIcon(image));
+					//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
+				} 
 			}
-			System.out.println(this.image);
-			ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
-			Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
-			if (i == 0) {
-				lblFotoCarta1.setIcon(new ImageIcon(image));
-				//btnCarta1.add(lblFotoCarta1, BorderLayout.SOUTH);
-			} else if (i == 1) {
-				lblFotoCarta2.setIcon(new ImageIcon(image));
-				//btnCarta2.add(lblFotoCarta2, BorderLayout.SOUTH);
-			} else if (i == 2) {
-				lblFotoCarta3.setIcon(new ImageIcon(image));
-				//btnCarta3.add(lblFotoCarta3, BorderLayout.SOUTH);
-			} else if (i == 3) {
-				lblFotoCarta4.setIcon(new ImageIcon(image));
-				//btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
-			} else if (i == 4) {
-				lblFotoCarta5.setIcon(new ImageIcon(image));
-				//btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
-			} else if (i == 5) {
-				lblFotoCarta6.setIcon(new ImageIcon(image));
-				//btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
-			} else if (i == 6) {
-				lblFotoCarta7.setIcon(new ImageIcon(image));
-				//btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
-			} else if (i == 7) {
-				lblFotoCarta8.setIcon(new ImageIcon(image));
-				//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
+			
+			if (i == 8) {
+				this.limpiarLabels();
+				System.out.println("Esta entrando a i=8");
+				int num =  Integer.parseInt(rr.get(i));
+				System.out.println(num);
+				this.image = "/irudiak/plato1.png";
+				
+				ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+				Image image3 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+				for(int j=0; j< num; j++) {
+					
+					if (j==0 ) {
+						lblFotoPlato1.setIcon(new ImageIcon(image3));
+					}else if (j==1){
+						lblFotoPlato2.setIcon(new ImageIcon(image3));
+					}else if (j==2){
+						lblFotoPlato3.setIcon(new ImageIcon(image3));
+					}else if (j==3){
+						lblFotoPlato4.setIcon(new ImageIcon(image3));
+					}else if (j==4){
+						lblFotoPlato5.setIcon(new ImageIcon(image3));
+					}
+					
+				}
+				
+			}
+			
+			if (i == 9) {
+				//this.limpiarLabels();
+				
+				int num =  Integer.parseInt(rr.get(i));
+				this.image = "/irudiak/dinero.png";
+				
+				ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+				Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+				for(int j=0; j< num; j++) {
+					System.out.println(j);
+					if (j==0 ) {
+						lblFotoDinero1.setIcon(new ImageIcon(image2));
+					}else if (j==1){
+						lblFotoDinero2.setIcon(new ImageIcon(image2));
+					}else if (j==2){
+						lblFotoDinero3.setIcon(new ImageIcon(image2));
+					}
+				}
+				
+			}
+			
+			if (i == 10) {
+				this.limpiarLabels();
+				System.out.println("Esta entrando a i=10");
+				int num =  Integer.parseInt(rr.get(i));
+				this.image = "/irudiak/plato1.png";
+				
+				ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+				Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+				for(int j=0; j< num; j++) {
+					System.out.println(j);
+					if (j==0 ) {
+						lblFotoPlato1PC.setIcon(new ImageIcon(image2));
+					}else if (j==1){
+						lblFotoPlato2PC.setIcon(new ImageIcon(image2));
+					}else if (j==2){
+						lblFotoPlato3PC.setIcon(new ImageIcon(image2));
+					}else if (j==3){
+						lblFotoPlato4PC.setIcon(new ImageIcon(image2));
+					}else if (j==4){
+						lblFotoPlato5PC.setIcon(new ImageIcon(image2));
+					}
+					
+				}
+				
+			}
+			
+			if (i == 11) {
+				//this.limpiarLabels();
+				
+				int num =  Integer.parseInt(rr.get(i));
+				this.image = "/irudiak/dinero.png";
+				
+				ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+				Image image2 = imageIcon2.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+				for(int j=0; j< num; j++) {
+					System.out.println(j);
+					if (j==0 ) {
+						lblFotoDinero1PC.setIcon(new ImageIcon(image2));
+					}else if (j==1){
+						lblFotoDinero2PC.setIcon(new ImageIcon(image2));
+					}else if (j==2){
+						lblFotoDinero3PC.setIcon(new ImageIcon(image2));
+					}
+				}
+				
 			}
 			
 		}
+	}
+	
+	public void limpiarLabels() {
+		
+		this.image = "";
+		
+		lblFotoPlato1.setIcon(new ImageIcon(image));
+		lblFotoPlato2.setIcon(new ImageIcon(image));
+		lblFotoPlato3.setIcon(new ImageIcon(image));
+		lblFotoPlato4.setIcon(new ImageIcon(image));
+		lblFotoPlato5.setIcon(new ImageIcon(image));
+		
 	}
 
 }

@@ -1,10 +1,11 @@
 ERRORES
-- Cuando empieza el PC y utiliza un zorro se peta el juego
-- Cuando el PC usa un Malo para robar un plato y te puedes defender, se peta
 - Cuando el PC usa dos chefs consigue punto aunque no tenga plato
-- El PC a veces juega dos turnos cuando le toca empezar
-
+- El PC se añade mas de 4 cartas
+- Las cartas a veces no se actualizan
+-No pone platos de jugador
+-Pc hace trampas con los puntos
+-Da numeros negativos-> comprobar que se le pueda robar
+- 
 FALTA
 - Actualizar los platos y puntos en la vista
-Para ver luego:
-- Tenemos puesto que Chef + Chef = Punto pero PLATO + CHEF + COCINA = GANAR PUNTO
+
