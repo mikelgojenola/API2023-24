@@ -1,12 +1,12 @@
 package model;
 
-public class Arrautza {
+public class Plato {
 	
 	//ATRIBUTUAK
 	private boolean txita = false;
 	
 	//ERAIKITZAILEA
-	public Arrautza(boolean pTxita) {
+	public Plato(boolean pTxita) {
 		this.txita = pTxita;
 	}
 	
