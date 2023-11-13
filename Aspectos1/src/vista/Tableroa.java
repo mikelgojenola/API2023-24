@@ -35,10 +35,10 @@ public class Tableroa extends JFrame implements Observer {
 	private JToggleButton btnCarta2;
 	private JToggleButton btnCarta3;
 	private JToggleButton btnCarta4;
-	private JToggleButton btnCarta5;
-	private JToggleButton btnCarta6;
-	private JToggleButton btnCarta7;
-	private JToggleButton btnCarta8;
+	private JButton btnCarta5;
+	private JButton btnCarta6;
+	private JButton btnCarta7;
+	private JButton btnCarta8;
 	private JLabel lblPCPlatos;
 	private JLabel lblPCDinero;
 	private JButton btnCartaAldatu;
@@ -275,9 +275,9 @@ public class Tableroa extends JFrame implements Observer {
 		return btnCarta4;
 	}
 	
-	private JToggleButton getBtnCarta5() {
+	private JButton getBtnCarta5() {
 		if(btnCarta5 == null) {
-			btnCarta5 = new JToggleButton();
+			btnCarta5 = new JButton();
 		    btnCarta5.setPreferredSize(new Dimension(100, 170));
 		    btnCarta5.setLayout(new BorderLayout());
 
@@ -289,9 +289,9 @@ public class Tableroa extends JFrame implements Observer {
 		return btnCarta5;
 	}
 	
-	private JToggleButton getBtnCarta6() {
+	private JButton getBtnCarta6() {
 		if(btnCarta6 == null) {
-			btnCarta6 = new JToggleButton();
+			btnCarta6 = new JButton();
 		    btnCarta6.setPreferredSize(new Dimension(100, 170));
 		    btnCarta6.setLayout(new BorderLayout());
 
@@ -303,9 +303,9 @@ public class Tableroa extends JFrame implements Observer {
 		return btnCarta6;
 	}
 	
-	private JToggleButton getBtnCarta7() {
+	private JButton getBtnCarta7() {
 		if(btnCarta7 == null) {
-			btnCarta7 = new JToggleButton();
+			btnCarta7 = new JButton();
 		    btnCarta7.setPreferredSize(new Dimension(100, 170));
 		    btnCarta7.setLayout(new BorderLayout());
 
@@ -318,9 +318,9 @@ public class Tableroa extends JFrame implements Observer {
 	}
 	
 	
-	private JToggleButton getBtnCarta8() {
+	private JButton getBtnCarta8() {
 		if(btnCarta8 == null) {
-			btnCarta8 = new JToggleButton();
+			btnCarta8 = new JButton();
 		    btnCarta8.setPreferredSize(new Dimension(100, 170));
 		    btnCarta8.setLayout(new BorderLayout());
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class JugadorNormal extends Jugador {
 	
@@ -197,7 +198,7 @@ public class JugadorNormal extends Jugador {
 	
 	//JOKALDI EXTRA EGIN METODOA
 	public boolean hacerJugadaExtra() {
-		boolean erantzuna = false;
+		/*boolean erantzuna = false;
 		int s1,s2;
 		if (this.getCartasMano().puedoDefender()) {
 			System.out.println("Aukeratu Cartak defendatzeko");
@@ -209,7 +210,47 @@ public class JugadorNormal extends Jugador {
 			this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());	
 			erantzuna = true;
 		}
+		return erantzuna;*/
+		
+		boolean erantzuna = false;
+		int kont = 0;
+		Carta k1, k2, k3, k4;
+		if(this.getCartasMano().puedoDefender()){
+			
+			erantzuna = true;
+			Iterator<Carta> itr = this.getCartasMano().getIterador();
+			k1 = itr.next();
+			k2 = itr.next();
+			k3 = itr.next();
+			k4 = itr.next();
+			if (k1.esRataOno() && kont != 2) {
+				this.getCartasMano().quitarCartaConCarta(k1);
+				
+				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+				kont++;						
+			}
+			if (k2.esRataOno() && kont != 2) {
+				this.getCartasMano().quitarCartaConCarta(k2);
+				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+				kont++;						
+			}
+			if (k3.esRataOno() && kont != 2) {
+				this.getCartasMano().quitarCartaConCarta(k3);
+				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+				kont++;						
+			}
+			if (k4.esRataOno() && kont != 2) {
+				this.getCartasMano().quitarCartaConCarta(k4);
+				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+				kont++;						
+			}	
+			System.out.println("El jugador ha defendido su plato.");
+		}else {
+			System.out.println("El jugador no puede defender su plato.");
+		}
 		return erantzuna;
+		
+		
 	}
 	
 	
