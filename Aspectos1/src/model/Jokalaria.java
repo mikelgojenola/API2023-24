@@ -73,6 +73,10 @@ public abstract class Jokalaria{
 		return this.azeriaErabiliDu;
 	}
 	
+	protected void resetAzeria() {
+		this.azeriaErabiliDu = false;
+	}
+	
 	
 	//JOKALDIA EGIN METODOA
 	protected abstract void jokaldiaEgin();

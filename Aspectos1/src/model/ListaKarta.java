@@ -100,7 +100,7 @@ public class ListaKarta {
 	
 	//BAZTERTU KARTA MOTA JAKINDA METODOA
 	public Karta baztertuKartaMotaJakinda(KartaMotak sarrera) {
-		Karta k = null, b;		
+		Karta k = null, b = null;		
 		Iterator<Karta> itr = this.getIteradorea();
 		while (itr.hasNext() && k == null) {
 			b = itr.next();
