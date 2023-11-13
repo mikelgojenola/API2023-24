@@ -2,6 +2,7 @@ package model;
 
 
 import java.util.ArrayList;
+import vista.Ganador;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
@@ -170,13 +171,13 @@ public class Juego extends Observable{
 		if(m == 0) {
 			lehenRondaJolastu();
 		}
-		while (!bukaera()) {
+		/*while (!bukaera()) {
 			rondaJolastu();		
 		}
 		if (getLista()[1].getPuntos() == 3) {
 			System.out.println("Jokua bukatu da");
 			getLista()[1].mensajeGanador();
-		}
+		}*/
 		
 	}	
 	
@@ -248,47 +249,51 @@ public class Juego extends Observable{
 	}
 	
 	public static void rondaJolastu2(ArrayList<Integer> jokaldiCartak) {
-
-		getLista()[j].hacerJugada2(jokaldiCartak);
-		if (getLista()[j].getHaUsadoMalo()) {
-			if (!getLista()[m].hacerJugadaExtra()) {
-				Plato a = new Plato(false);
-				getLista()[j].getPlatosMano().sumaPlato(a);
-				getLista()[m].getPlatosMano().quitaPlato(0);
-				getLista()[j].platoKop++;
-				getLista()[m].platoKop--; 
-			}
-			getLista()[j].imprimirMano();
-			getLista()[j].resetMalo();
-		}
 		
-		
-		if (getLista()[j].getPuntos() != 3) {
-			getLista()[m].hacerJugada();
-			if (getLista()[m].getHaUsadoMalo()) {
-				if (!getLista()[j].hacerJugadaExtra()) {
-					Plato a = new Plato(false);
-					getLista()[m].getPlatosMano().sumaPlato(a);
-					getLista()[j].getPlatosMano().quitaPlato(0);
-					getLista()[m].platoKop++;
-					getLista()[j].platoKop--; 
-
-				}	
-				getLista()[1].imprimirMano();
-				getLista()[m].resetMalo();
-			}
-			System.out.println("333333333333333333333333333333333333333333333333");
-			System.out.println("####################################################");
-			System.out.println(getLista()[j].getCartasMano().getTamaño());
-			System.out.println("####################################################");
+		if(getLista()[m].getPuntos() == 3) {
+			Ganador g = new Ganador("Maquina");
 		}else {
-			System.out.println("Jokua bukatu da");
-			getLista()[0].mensajeGanador();
+			getLista()[j].hacerJugada2(jokaldiCartak);
+			if (getLista()[j].getHaUsadoMalo()) {
+				if (!getLista()[m].hacerJugadaExtra()) {
+					Plato a = new Plato(false);
+					getLista()[j].getPlatosMano().sumaPlato(a);
+					getLista()[m].getPlatosMano().quitaPlato(0);
+					getLista()[j].platoKop++;
+					getLista()[m].platoKop--; 
+				}
+				getLista()[j].imprimirMano();
+				getLista()[j].resetMalo();
+			}
+			
+			
+			if (getLista()[j].getPuntos() != 3) {
+				getLista()[m].hacerJugada();
+				if (getLista()[m].getHaUsadoMalo()) {
+					if (!getLista()[j].hacerJugadaExtra()) {
+						Plato a = new Plato(false);
+						getLista()[m].getPlatosMano().sumaPlato(a);
+						getLista()[j].getPlatosMano().quitaPlato(0);
+						getLista()[m].platoKop++;
+						getLista()[j].platoKop--; 
+
+					}	
+					getLista()[1].imprimirMano();
+					getLista()[m].resetMalo();
+				}
+			
+			}else {
+				System.out.println("Jokua bukatu da");
+				getLista()[0].mensajeGanador();
+				Ganador g = new Ganador("Tu");
+			}
+			
+			ArrayList<String> listaInfo = getInfoUpdate();
+			Juego.getMiJuego().setChanged();
+			Juego.getMiJuego().notifyObservers(listaInfo);
 		}
+
 		
-		ArrayList<String> listaInfo = getInfoUpdate();
-		Juego.getMiJuego().setChanged();
-		Juego.getMiJuego().notifyObservers(listaInfo);
 	}
 	
 	private static ArrayList<String> getInfoUpdate() {
