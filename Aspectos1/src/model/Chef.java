@@ -1,10 +1,10 @@
 package model;
 
-public class Chef extends Karta{
+public class Chef extends Carta{
 
 	public Chef() {
 		super();
-		this.mota = KartaMotak.Chef;
+		this.tipo = TipoCartas.Chef;
 		// TODO Auto-generated constructor stub
 	}
 

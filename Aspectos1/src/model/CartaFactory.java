@@ -8,32 +8,32 @@ import Model.PokemonMotak;
 import Model.Sua;
 import Model.Ura;*/
 
-public class KartaFactory {
-	private static KartaFactory k = null;
+public class CartaFactory {
+	private static CartaFactory k = null;
 	
-	private KartaFactory() {
+	private CartaFactory() {
 		
 	}
 	
-	public static KartaFactory getK() {
+	public static CartaFactory getK() {
 		if(k == null) {
-			k = new KartaFactory();
+			k = new CartaFactory();
 		}
 		return k;
 	}
 	
-	public Karta sortuKarta(KartaMotak km, int p) {
-		Karta kar = null;
-			if(km == KartaMotak.Rata) {
+	public Carta crearCarta(TipoCartas km, int p) {
+		Carta kar = null;
+			if(km == TipoCartas.Rata) {
 				kar = new Rata();
 				
-			}else if(km == KartaMotak.Chef) {
+			}else if(km == TipoCartas.Chef) {
 				kar = new Chef();
 			
-			}else if(km == KartaMotak.Cocina) {
+			}else if(km == TipoCartas.Cocina) {
 				kar = new Cocina();
 				
-			}else if(km == KartaMotak.Malo) {
+			}else if(km == TipoCartas.Malo) {
 				kar = new Malo();
 			}
 			return kar;

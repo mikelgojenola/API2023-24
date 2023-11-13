@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
-import model.ListaJokalaria;
+import model.Juego;
 
 public class Tableroa extends JFrame implements Observer {
 	
@@ -27,32 +27,32 @@ public class Tableroa extends JFrame implements Observer {
 	private JPanel panelPrincipal;
 	private JPanel panelPC;
 	private JPanel panelJok;
-	private JPanel panelKartakJok;
-	private JPanel panelKartakPC;
+	private JPanel panelCartakJok;
+	private JPanel panelCartakPC;
 	private JPanel panelAkzioak;
 	private JPanel panelJokInfo;
-	private JToggleButton btnKarta1;
-	private JToggleButton btnKarta2;
-	private JToggleButton btnKarta3;
-	private JToggleButton btnKarta4;
-	private JToggleButton btnKarta5;
-	private JToggleButton btnKarta6;
-	private JToggleButton btnKarta7;
-	private JToggleButton btnKarta8;
+	private JToggleButton btnCarta1;
+	private JToggleButton btnCarta2;
+	private JToggleButton btnCarta3;
+	private JToggleButton btnCarta4;
+	private JToggleButton btnCarta5;
+	private JToggleButton btnCarta6;
+	private JToggleButton btnCarta7;
+	private JToggleButton btnCarta8;
 	private JLabel lblPCPlatos;
 	private JLabel lblPCDinero;
-	private JButton btnKartaAldatu;
+	private JButton btnCartaAldatu;
 	private JButton btnJokaldiaEgin;
 	private Controller controller;
 	private String image = null;
-	private JLabel lblFotoKarta1;
-	private JLabel lblFotoKarta2;
-	private JLabel lblFotoKarta3;
-	private JLabel lblFotoKarta4;
-	private JLabel lblFotoKarta5;
-	private JLabel lblFotoKarta6;
-	private JLabel lblFotoKarta7;
-	private JLabel lblFotoKarta8;
+	private JLabel lblFotoCarta1;
+	private JLabel lblFotoCarta2;
+	private JLabel lblFotoCarta3;
+	private JLabel lblFotoCarta4;
+	private JLabel lblFotoCarta5;
+	private JLabel lblFotoCarta6;
+	private JLabel lblFotoCarta7;
+	private JLabel lblFotoCarta8;
 	
 
 	
@@ -70,7 +70,7 @@ public class Tableroa extends JFrame implements Observer {
 
 	    
 	    panelPrincipal.add(getPnlPC(), BorderLayout.NORTH);
-	    //panelPrincipal.add(getPnlKartak(), BorderLayout.CENTER);
+	    //panelPrincipal.add(getPnlCartak(), BorderLayout.CENTER);
 	    panelPrincipal.add(getPnlJok(), BorderLayout.SOUTH);
 	    
 		setVisible(true);
@@ -118,43 +118,43 @@ public class Tableroa extends JFrame implements Observer {
 			
 			panelPC.add(panelPCInfo, BorderLayout.NORTH);
 			
-			panelPC.add(getPnlKartakPC(), BorderLayout.SOUTH);	
+			panelPC.add(getPnlCartakPC(), BorderLayout.SOUTH);	
 
 		}
 		return panelPC;
 	}
 	
-	private JPanel getPnlKartakPC() {
-		if(panelKartakPC == null) {
-			panelKartakPC = new JPanel();
-			panelKartakPC.add(getBtnKarta5());
-			panelKartakPC.add(getBtnKarta6());
-			panelKartakPC.add(getBtnKarta7());
-			panelKartakPC.add(getBtnKarta8());
+	private JPanel getPnlCartakPC() {
+		if(panelCartakPC == null) {
+			panelCartakPC = new JPanel();
+			panelCartakPC.add(getBtnCarta5());
+			panelCartakPC.add(getBtnCarta6());
+			panelCartakPC.add(getBtnCarta7());
+			panelCartakPC.add(getBtnCarta8());
 		}
-		return panelKartakPC;
+		return panelCartakPC;
 	}
 	
 	private JPanel getPnlJok() {
 		if(panelJok == null) {
 			panelJok = new JPanel();
 			panelJok.setLayout(new BorderLayout());
-			panelJok.add(getPnlKartakJok(), BorderLayout.NORTH);
+			panelJok.add(getPnlCartakJok(), BorderLayout.NORTH);
 			panelJok.add(getPnlAkzioak(), BorderLayout.CENTER);
 			panelJok.add(getPnlJokInfo(), BorderLayout.SOUTH);
 		}
 		return panelJok;
 	}
 	
-	private JPanel getPnlKartakJok() {
-		if(panelKartakJok == null) {
-			panelKartakJok = new JPanel();
-			panelKartakJok.add(getBtnKarta1());
-			panelKartakJok.add(getBtnKarta2());
-			panelKartakJok.add(getBtnKarta3());
-			panelKartakJok.add(getBtnKarta4());
+	private JPanel getPnlCartakJok() {
+		if(panelCartakJok == null) {
+			panelCartakJok = new JPanel();
+			panelCartakJok.add(getBtnCarta1());
+			panelCartakJok.add(getBtnCarta2());
+			panelCartakJok.add(getBtnCarta3());
+			panelCartakJok.add(getBtnCarta4());
 		}
-		return panelKartakJok;
+		return panelCartakJok;
 	}
 
 	private JPanel getPnlAkzioak() {
@@ -162,7 +162,7 @@ public class Tableroa extends JFrame implements Observer {
 			panelAkzioak = new JPanel();
 			panelAkzioak.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 			
-			panelAkzioak.add(getBtnKartaAldatu());
+			panelAkzioak.add(getBtnCartaAldatu());
 			panelAkzioak.add(getBtnJokaldiaEgin());
 		}
 		return panelAkzioak;
@@ -209,127 +209,127 @@ public class Tableroa extends JFrame implements Observer {
 		return panelJokInfo;
 	}
 	
-	private JToggleButton getBtnKarta1() {
-		if(btnKarta1 == null) {
-			btnKarta1 = new JToggleButton();
-		    btnKarta1.setPreferredSize(new Dimension(120, 200));
-		    btnKarta1.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta1() {
+		if(btnCarta1 == null) {
+			btnCarta1 = new JToggleButton();
+		    btnCarta1.setPreferredSize(new Dimension(120, 200));
+		    btnCarta1.setLayout(new BorderLayout());
 
-			btnKarta1.add(new JLabel("Carta 1"), BorderLayout.NORTH);
+			btnCarta1.add(new JLabel("Carta 1"), BorderLayout.NORTH);
 			
 			//--------------------------------------------------------------------------
 			//ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource("/irudiak/Rata.png"));
 		    //Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
-			lblFotoKarta1 = new JLabel();
-			//lblFotoKarta1.setIcon(new ImageIcon(image));
-			btnKarta1.add(lblFotoKarta1, BorderLayout.SOUTH);
+			lblFotoCarta1 = new JLabel();
+			//lblFotoCarta1.setIcon(new ImageIcon(image));
+			btnCarta1.add(lblFotoCarta1, BorderLayout.SOUTH);
 			//--------------------------------------------------------------------------
 		}
-		return btnKarta1;
+		return btnCarta1;
 	}
 	
-	private JToggleButton getBtnKarta2() {
-		if(btnKarta2 == null) {
-		    btnKarta2 = new JToggleButton();
-		    btnKarta2.setPreferredSize(new Dimension(120, 200));
-		    btnKarta2.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta2() {
+		if(btnCarta2 == null) {
+		    btnCarta2 = new JToggleButton();
+		    btnCarta2.setPreferredSize(new Dimension(120, 200));
+		    btnCarta2.setLayout(new BorderLayout());
 		    
-			btnKarta2.add(new JLabel("Carta 2"), BorderLayout.NORTH);
+			btnCarta2.add(new JLabel("Carta 2"), BorderLayout.NORTH);
 			
 			//--------------------------------------------------------------------------
 			//ImageIcon imageIcon = new ImageIcon(HasieraMenua.class.getResource("/irudiak/Malo.png"));
 		    //Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
-			lblFotoKarta2 = new JLabel();
-			//lblFotoKarta2.setIcon(new ImageIcon(image));
-			btnKarta2.add(lblFotoKarta2, BorderLayout.SOUTH);
+			lblFotoCarta2 = new JLabel();
+			//lblFotoCarta2.setIcon(new ImageIcon(image));
+			btnCarta2.add(lblFotoCarta2, BorderLayout.SOUTH);
 			//--------------------------------------------------------------------------
 		}
-		return btnKarta2;
+		return btnCarta2;
 	}
 	
-	private JToggleButton getBtnKarta3() {
-		if(btnKarta3 == null) {
-			btnKarta3 = new JToggleButton();
-		    btnKarta3.setPreferredSize(new Dimension(120, 200));
-		    btnKarta3.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta3() {
+		if(btnCarta3 == null) {
+			btnCarta3 = new JToggleButton();
+		    btnCarta3.setPreferredSize(new Dimension(120, 200));
+		    btnCarta3.setLayout(new BorderLayout());
 
-			btnKarta3.add(new JLabel("Carta 3"), BorderLayout.NORTH);
+			btnCarta3.add(new JLabel("Carta 3"), BorderLayout.NORTH);
 			
-			lblFotoKarta3 = new JLabel();
-			btnKarta3.add(lblFotoKarta3, BorderLayout.SOUTH);
+			lblFotoCarta3 = new JLabel();
+			btnCarta3.add(lblFotoCarta3, BorderLayout.SOUTH);
 			}
-		return btnKarta3;
+		return btnCarta3;
 	}
 	
-	private JToggleButton getBtnKarta4() {
-		if(btnKarta4 == null) {
-			btnKarta4 = new JToggleButton();
-		    btnKarta4.setPreferredSize(new Dimension(120, 200));
-		    btnKarta4.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta4() {
+		if(btnCarta4 == null) {
+			btnCarta4 = new JToggleButton();
+		    btnCarta4.setPreferredSize(new Dimension(120, 200));
+		    btnCarta4.setLayout(new BorderLayout());
 
-			btnKarta4.add(new JLabel("Carta 4"), BorderLayout.NORTH);
+			btnCarta4.add(new JLabel("Carta 4"), BorderLayout.NORTH);
 			
-			lblFotoKarta4 = new JLabel();
-			btnKarta4.add(lblFotoKarta4, BorderLayout.SOUTH);
+			lblFotoCarta4 = new JLabel();
+			btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
 		}
-		return btnKarta4;
+		return btnCarta4;
 	}
 	
-	private JToggleButton getBtnKarta5() {
-		if(btnKarta5 == null) {
-			btnKarta5 = new JToggleButton();
-		    btnKarta5.setPreferredSize(new Dimension(100, 170));
-		    btnKarta5.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta5() {
+		if(btnCarta5 == null) {
+			btnCarta5 = new JToggleButton();
+		    btnCarta5.setPreferredSize(new Dimension(100, 170));
+		    btnCarta5.setLayout(new BorderLayout());
 
-			btnKarta5.add(new JLabel("Carta 5"), BorderLayout.NORTH);
+			btnCarta5.add(new JLabel("Carta 5"), BorderLayout.NORTH);
 			
-			lblFotoKarta5 = new JLabel();
-			btnKarta5.add(lblFotoKarta5, BorderLayout.SOUTH);
+			lblFotoCarta5 = new JLabel();
+			btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
 		}
-		return btnKarta5;
+		return btnCarta5;
 	}
 	
-	private JToggleButton getBtnKarta6() {
-		if(btnKarta6 == null) {
-			btnKarta6 = new JToggleButton();
-		    btnKarta6.setPreferredSize(new Dimension(100, 170));
-		    btnKarta6.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta6() {
+		if(btnCarta6 == null) {
+			btnCarta6 = new JToggleButton();
+		    btnCarta6.setPreferredSize(new Dimension(100, 170));
+		    btnCarta6.setLayout(new BorderLayout());
 
-			btnKarta6.add(new JLabel("Carta 6"), BorderLayout.NORTH);
+			btnCarta6.add(new JLabel("Carta 6"), BorderLayout.NORTH);
 			
-			lblFotoKarta6 = new JLabel();
-			btnKarta6.add(lblFotoKarta6, BorderLayout.SOUTH);
+			lblFotoCarta6 = new JLabel();
+			btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
 		}
-		return btnKarta6;
+		return btnCarta6;
 	}
 	
-	private JToggleButton getBtnKarta7() {
-		if(btnKarta7 == null) {
-			btnKarta7 = new JToggleButton();
-		    btnKarta7.setPreferredSize(new Dimension(100, 170));
-		    btnKarta7.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta7() {
+		if(btnCarta7 == null) {
+			btnCarta7 = new JToggleButton();
+		    btnCarta7.setPreferredSize(new Dimension(100, 170));
+		    btnCarta7.setLayout(new BorderLayout());
 
-			btnKarta7.add(new JLabel("Carta 7"), BorderLayout.NORTH);
+			btnCarta7.add(new JLabel("Carta 7"), BorderLayout.NORTH);
 			
-			lblFotoKarta7 = new JLabel();
-			btnKarta7.add(lblFotoKarta7, BorderLayout.SOUTH);
+			lblFotoCarta7 = new JLabel();
+			btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
 		}
-		return btnKarta7;
+		return btnCarta7;
 	}
 	
 	
-	private JToggleButton getBtnKarta8() {
-		if(btnKarta8 == null) {
-			btnKarta8 = new JToggleButton();
-		    btnKarta8.setPreferredSize(new Dimension(100, 170));
-		    btnKarta8.setLayout(new BorderLayout());
+	private JToggleButton getBtnCarta8() {
+		if(btnCarta8 == null) {
+			btnCarta8 = new JToggleButton();
+		    btnCarta8.setPreferredSize(new Dimension(100, 170));
+		    btnCarta8.setLayout(new BorderLayout());
 
-			btnKarta8.add(new JLabel("Carta 8"), BorderLayout.NORTH);
+			btnCarta8.add(new JLabel("Carta 8"), BorderLayout.NORTH);
 			
-			lblFotoKarta8 = new JLabel();
-			btnKarta8.add(lblFotoKarta8, BorderLayout.SOUTH);
+			lblFotoCarta8 = new JLabel();
+			btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
 		}
-		return btnKarta8;
+		return btnCarta8;
 	}
 	
 	
@@ -357,13 +357,13 @@ public class Tableroa extends JFrame implements Observer {
 		return controller;
 	}
 	
-	private JButton getBtnKartaAldatu() {
-		if(btnKartaAldatu == null) {
-			btnKartaAldatu = new JButton();
-			btnKartaAldatu.setText("Karta aldatu");
-			btnKartaAldatu.addActionListener(getController());
+	private JButton getBtnCartaAldatu() {
+		if(btnCartaAldatu == null) {
+			btnCartaAldatu = new JButton();
+			btnCartaAldatu.setText("Carta aldatu");
+			btnCartaAldatu.addActionListener(getController());
 		}
-		return btnKartaAldatu;
+		return btnCartaAldatu;
 	}
 	
 	private JButton getBtnJokaldiaEgin() {
@@ -378,52 +378,52 @@ public class Tableroa extends JFrame implements Observer {
 	private class Controller implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource().equals(btnJokaldiaEgin)) {
-				ArrayList<Integer> jokaldiKartakPos = new ArrayList<Integer>();
-				if(getBtnKarta1().isSelected()) {
-					jokaldiKartakPos.add(1);
+				ArrayList<Integer> jokaldiCartakPos = new ArrayList<Integer>();
+				if(getBtnCarta1().isSelected()) {
+					jokaldiCartakPos.add(1);
 				}
-				if(getBtnKarta2().isSelected()) {
-					jokaldiKartakPos.add(2);
+				if(getBtnCarta2().isSelected()) {
+					jokaldiCartakPos.add(2);
 				}
-				if(getBtnKarta3().isSelected()) {
-					jokaldiKartakPos.add(3);
+				if(getBtnCarta3().isSelected()) {
+					jokaldiCartakPos.add(3);
 				}
-				if(getBtnKarta4().isSelected()) {
-					jokaldiKartakPos.add(4);
+				if(getBtnCarta4().isSelected()) {
+					jokaldiCartakPos.add(4);
 				}
-				getBtnKarta1().setSelected(false);
-				getBtnKarta2().setSelected(false);
-				getBtnKarta3().setSelected(false);
-				getBtnKarta4().setSelected(false);
-				ListaJokalaria.rondaJolastu2(jokaldiKartakPos);
+				getBtnCarta1().setSelected(false);
+				getBtnCarta2().setSelected(false);
+				getBtnCarta3().setSelected(false);
+				getBtnCarta4().setSelected(false);
+				Juego.rondaJolastu2(jokaldiCartakPos);
 				
 			}
-			else if(e.getSource().equals(btnKartaAldatu)) {
-				ArrayList<Integer> jokaldiKartakPos = new ArrayList<Integer>();
-				if(getBtnKarta1().isSelected()) {
-					jokaldiKartakPos.add(1);
+			else if(e.getSource().equals(btnCartaAldatu)) {
+				ArrayList<Integer> jokaldiCartakPos = new ArrayList<Integer>();
+				if(getBtnCarta1().isSelected()) {
+					jokaldiCartakPos.add(1);
 				}
-				if(getBtnKarta2().isSelected()) {
-					jokaldiKartakPos.add(2);
+				if(getBtnCarta2().isSelected()) {
+					jokaldiCartakPos.add(2);
 				}
-				if(getBtnKarta3().isSelected()) {
-					jokaldiKartakPos.add(3);
+				if(getBtnCarta3().isSelected()) {
+					jokaldiCartakPos.add(3);
 				}
-				if(getBtnKarta4().isSelected()) {
-					jokaldiKartakPos.add(4);
+				if(getBtnCarta4().isSelected()) {
+					jokaldiCartakPos.add(4);
 				}
-				getBtnKarta1().setSelected(false);
-				getBtnKarta2().setSelected(false);
-				getBtnKarta3().setSelected(false);
-				getBtnKarta4().setSelected(false);
-				if(jokaldiKartakPos.size() == 1) {
-					jokaldiKartakPos.add(-1);
-					jokaldiKartakPos.add(-1);
-					jokaldiKartakPos.add(-1);
-					jokaldiKartakPos.add(-1);
-					ListaJokalaria.rondaJolastu2(jokaldiKartakPos);
+				getBtnCarta1().setSelected(false);
+				getBtnCarta2().setSelected(false);
+				getBtnCarta3().setSelected(false);
+				getBtnCarta4().setSelected(false);
+				if(jokaldiCartakPos.size() == 1) {
+					jokaldiCartakPos.add(-1);
+					jokaldiCartakPos.add(-1);
+					jokaldiCartakPos.add(-1);
+					jokaldiCartakPos.add(-1);
+					Juego.rondaJolastu2(jokaldiCartakPos);
 				} else {
-					System.out.println("¡Tienes que elegir UNA carta para descartar!");
+					System.out.println("ï¿½Tienes que elegir UNA carta para descartar!");
 				}
 			}
 		}
@@ -445,29 +445,29 @@ public class Tableroa extends JFrame implements Observer {
 			ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
 			Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 			if (i == 0) {
-				lblFotoKarta1.setIcon(new ImageIcon(image));
-				//btnKarta1.add(lblFotoKarta1, BorderLayout.SOUTH);
+				lblFotoCarta1.setIcon(new ImageIcon(image));
+				//btnCarta1.add(lblFotoCarta1, BorderLayout.SOUTH);
 			} else if (i == 1) {
-				lblFotoKarta2.setIcon(new ImageIcon(image));
-				//btnKarta2.add(lblFotoKarta2, BorderLayout.SOUTH);
+				lblFotoCarta2.setIcon(new ImageIcon(image));
+				//btnCarta2.add(lblFotoCarta2, BorderLayout.SOUTH);
 			} else if (i == 2) {
-				lblFotoKarta3.setIcon(new ImageIcon(image));
-				//btnKarta3.add(lblFotoKarta3, BorderLayout.SOUTH);
+				lblFotoCarta3.setIcon(new ImageIcon(image));
+				//btnCarta3.add(lblFotoCarta3, BorderLayout.SOUTH);
 			} else if (i == 3) {
-				lblFotoKarta4.setIcon(new ImageIcon(image));
-				//btnKarta4.add(lblFotoKarta4, BorderLayout.SOUTH);
+				lblFotoCarta4.setIcon(new ImageIcon(image));
+				//btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
 			} else if (i == 4) {
-				lblFotoKarta5.setIcon(new ImageIcon(image));
-				//btnKarta5.add(lblFotoKarta5, BorderLayout.SOUTH);
+				lblFotoCarta5.setIcon(new ImageIcon(image));
+				//btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
 			} else if (i == 5) {
-				lblFotoKarta6.setIcon(new ImageIcon(image));
-				//btnKarta6.add(lblFotoKarta6, BorderLayout.SOUTH);
+				lblFotoCarta6.setIcon(new ImageIcon(image));
+				//btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
 			} else if (i == 6) {
-				lblFotoKarta7.setIcon(new ImageIcon(image));
-				//btnKarta7.add(lblFotoKarta7, BorderLayout.SOUTH);
+				lblFotoCarta7.setIcon(new ImageIcon(image));
+				//btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
 			} else if (i == 7) {
-				lblFotoKarta8.setIcon(new ImageIcon(image));
-				//btnKarta8.add(lblFotoKarta8, BorderLayout.SOUTH);
+				lblFotoCarta8.setIcon(new ImageIcon(image));
+				//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
 			}
 			
 		}
