@@ -115,10 +115,12 @@ public class Combinaciones {
 		if(chefKop >= 2) {
 			erantzuna = true;
 			tipoCombinacion = 1;
-		} else if(chefKop >= 1 && rataKop >= 1 && cocinaKop >= 1) {
+		} 
+		if(chefKop >= 1 && rataKop >= 1 && cocinaKop >= 1) {
 			erantzuna = true;
 			tipoCombinacion = 2;
-		} else if(maloKop >= 1) {
+		} 
+		if(maloKop >= 1) {
 			erantzuna = true;
 			tipoCombinacion = 3;
 		}

@@ -24,7 +24,10 @@ public class JugadorCPU extends Jugador{
 		this.haUsadoMalo = false;
 		Carta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoCarta;
 		imprimirMano();
-		if(!this.getCombinaciones().konbinazioNormalikAhalDago2(getCartasMano(),this.platoKop, txandaZenbakia)) {
+		
+		boolean puedeHacerCombinaciones = this.getCombinaciones().konbinazioNormalikAhalDago2(getCartasMano(),this.platoKop, txandaZenbakia);
+		//if(!this.getCombinaciones().konbinazioNormalikAhalDago2(getCartasMano(),this.platoKop, txandaZenbakia)) {
+		if(puedeHacerCombinaciones == false) {
 			Iterator<Carta> itr = this.getCartasMano().getIterador();
 			while (itr.hasNext()) {
 				k1 = itr.next();
@@ -39,14 +42,22 @@ public class JugadorCPU extends Jugador{
 			System.out.println("Makinak Carta bat baztertu du eta beste bat hartu du.");
 		}else {
 			if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//doble oilo
-				this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
-				this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
-				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
-				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());			
-				this.puntos++;
-				this.platoKop--;
-				imprimirMano();
-				System.out.println("Makinak bi oilo erabili ditu Plato bat txita bihurtzeko.");
+				if (this.platoKop >= 1) {
+					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
+					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
+					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());			
+					this.puntos++;
+					this.platoKop--;
+					imprimirMano();
+					System.out.println("La maquina ha utilizado Chef + Chef + Plato para conseguir un punto.");
+				}else {
+					puedeHacerCombinaciones = false;
+					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
+					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
+					
+				}
+				
 				
 			}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 2) {//oilo oilar habia
 				this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
@@ -58,13 +69,15 @@ public class JugadorCPU extends Jugador{
 				this.getPlatosMano().sumaPlato(ListaPlatoHartzeko.getNireListaPlatoHartzeko().banaketa());
 				this.platoKop++;
 				imprimirMano();
-				System.out.println("Makinak oilo bat, oilar bat eta habia bat erabili ditu Plato bat hartzeko.");
+				System.out.println("La maquina ha utilizado Chef + Rata + Cocina para obtener un plato.");
 				
 			}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3){//zorro
-				this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Cocina));
+				
+				//this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Cocina));
+				this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Malo));
 				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());					
 				this.haUsadoMalo = true;
-				System.out.println("Makinak azeri bat erabili du zuri Plato bat lapurtzeko.");
+				System.out.println("La maquina ha utilizado al Malo para robarte un plato.");
 			}
 		}
 		

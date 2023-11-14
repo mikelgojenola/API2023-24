@@ -2,7 +2,8 @@ ERRORES
 - Cuando el PC usa dos chefs consigue punto aunque no tenga plato
 - El PC se añade mas de 4 cartas
 - Las cartas a veces no se actualizan
--Pc hace trampas con los puntos
--Da numeros negativos-> comprobar que se le pueda robar
-
+- Pc hace trampas con los puntos
+- Da numeros negativos-> comprobar que se le pueda robar
+- Si la ia tiene por ejemplo: 2 chefs pero no tiene ningun plato -> no mueve ninguna ficha/// creo que solucionado
+- Si la ia tiene por ejemplo: Chef- Chef - Cocina -Rata -> no eliga chef + cocina + rata sino que elige chef + chef /// creo que solucionado tambien 
 
