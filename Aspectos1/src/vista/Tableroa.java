@@ -512,7 +512,7 @@ public class Tableroa extends JFrame implements Observer {
 			}
 			
 			if (i == 8) {
-				this.limpiarLabels();
+				this.limpiarLabelsPlatoHumano();
 				System.out.println("Esta entrando a i=8");
 				int num =  Integer.parseInt(rr.get(i));
 				System.out.println(num);
@@ -540,7 +540,7 @@ public class Tableroa extends JFrame implements Observer {
 			
 			if (i == 9) {
 				//this.limpiarLabels();
-				
+				this.limpiarLabelsDineroHumano();
 				int num =  Integer.parseInt(rr.get(i));
 				this.image = "/irudiak/dinero.png";
 				
@@ -560,7 +560,9 @@ public class Tableroa extends JFrame implements Observer {
 			}
 			
 			if (i == 10) {
-				this.limpiarLabels();
+				//this.limpiarLabels();
+				
+				this.limpiarLabelsPlatoCPU();
 				System.out.println("Esta entrando a i=10");
 				int num =  Integer.parseInt(rr.get(i));
 				this.image = "/irudiak/plato1.png";
@@ -587,6 +589,7 @@ public class Tableroa extends JFrame implements Observer {
 			
 			if (i == 11) {
 				//this.limpiarLabels();
+				this.limpiarLabelsDineroCPU();
 				
 				int num =  Integer.parseInt(rr.get(i));
 				this.image = "/irudiak/dinero.png";
@@ -609,7 +612,7 @@ public class Tableroa extends JFrame implements Observer {
 		}
 	}
 	
-	public void limpiarLabels() {
+	private void limpiarLabelsPlatoHumano() {
 		
 		this.image = "";
 		
@@ -620,5 +623,33 @@ public class Tableroa extends JFrame implements Observer {
 		lblFotoPlato5.setIcon(new ImageIcon(image));
 		
 	}
+	
+	private void limpiarLabelsDineroHumano() {
+		this.image = "";
+		lblFotoDinero1.setIcon(new ImageIcon(image));
+		lblFotoDinero2.setIcon(new ImageIcon(image));
+		lblFotoDinero3.setIcon(new ImageIcon(image));
+	}
+	
+	private void limpiarLabelsPlatoCPU() {
+		
+		this.image = "";
+		
+		lblFotoPlato1PC.setIcon(new ImageIcon(image));
+		lblFotoPlato2PC.setIcon(new ImageIcon(image));
+		lblFotoPlato3PC.setIcon(new ImageIcon(image));
+		lblFotoPlato4PC.setIcon(new ImageIcon(image));
+		lblFotoPlato5PC.setIcon(new ImageIcon(image));
+		
+	}
+	
+	private void limpiarLabelsDineroCPU() {
+		this.image = "";
+		lblFotoDinero1PC.setIcon(new ImageIcon(image));
+		lblFotoDinero2PC.setIcon(new ImageIcon(image));
+		lblFotoDinero3PC.setIcon(new ImageIcon(image));
+	}
+	
+	
 
 }
