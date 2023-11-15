@@ -57,7 +57,7 @@ public class JugadorNormal extends Jugador {
 	}
 	
 	//JOKALDIA EGIN METODOA
-	public void hacerJugada() {
+	public void hacerJugada(boolean rivalPlato) {
 		int aukera = 0;
 		System.out.println(" ");
 		System.out.println("Zure txanda da.");
@@ -139,7 +139,7 @@ public class JugadorNormal extends Jugador {
 		}
 	}
 	
-	public void hacerJugada2(ArrayList<Integer> jokaldiCartak) {
+	public void hacerJugada2(ArrayList<Integer> jokaldiCartak, boolean rivalPlato) {
 		if(jokaldiCartak.size() == 5) {
 			desCartatu(jokaldiCartak.get(0));
 		} else {
@@ -148,8 +148,8 @@ public class JugadorNormal extends Jugador {
 				Carta k = this.getCartasMano().getCarta(jokaldiCartak.get(i)-1);
 				lista.meteCarta(k);
 			}
-			if (!this.getCombinaciones().konbinazioNormalikAhalDago2(lista, this.platoKop, txandaZenbakia)) {
-	
+			if (!this.getCombinaciones().konbinazioNormalikAhalDago2(lista, this.platoKop, txandaZenbakia, rivalPlato)) {
+				System.out.println("Descarta carta, no tienes combinaciones");
 			}
 			else {
 				if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//oilo oilo

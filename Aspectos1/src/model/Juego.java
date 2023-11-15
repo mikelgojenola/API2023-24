@@ -201,7 +201,7 @@ public class Juego extends Observable{
 	}
 	
 	private static void lehenRondaJolastu() {
-		getLista()[0].hacerJugada();
+		getLista()[0].hacerJugada(false);
 		if (getLista()[0].getHaUsadoMalo()) {
 			if (!getLista()[1].hacerJugadaExtra()) {
 				Plato a = new Plato(false);
@@ -217,7 +217,7 @@ public class Juego extends Observable{
 	//RONDA JOLASTU METODOA
 	public static void rondaJolastu() {	
 		System.out.println("---------------------------------------------------");
-		getLista()[0].hacerJugada();
+		getLista()[0].hacerJugada(getLista()[m].getPlatoKop() >= 1);
 		if (getLista()[0].getHaUsadoMalo()) {
 			if (!getLista()[1].hacerJugadaExtra()) {
 				Plato a = new Plato(false);
@@ -229,7 +229,7 @@ public class Juego extends Observable{
 			getLista()[0].imprimirMano();
 		}		
 		if (getLista()[0].getPuntos() != 3) {
-			getLista()[1].hacerJugada();
+			getLista()[1].hacerJugada(getLista()[j].getPlatoKop() >= 1);
 			if (getLista()[1].getHaUsadoMalo()) {
 				if (!getLista()[0].hacerJugadaExtra()) {
 					Plato a = new Plato(false);
@@ -252,8 +252,10 @@ public class Juego extends Observable{
 		
 		if(getLista()[m].getPuntos() == 3) {
 			Ganador g = new Ganador("Maquina");
+			
 		}else {
-			getLista()[j].hacerJugada2(jokaldiCartak);
+			
+			getLista()[j].hacerJugada2(jokaldiCartak, getLista()[m].getPlatoKop() >= 1);
 			if (getLista()[j].getHaUsadoMalo()) {
 				if (!getLista()[m].hacerJugadaExtra()) {
 					Plato a = new Plato(false);
@@ -268,7 +270,7 @@ public class Juego extends Observable{
 			
 			
 			if (getLista()[j].getPuntos() != 3) {
-				getLista()[m].hacerJugada();
+				getLista()[m].hacerJugada(getLista()[j].getPlatoKop() >= 1);
 				if (getLista()[m].getHaUsadoMalo()) {
 					if (!getLista()[j].hacerJugadaExtra()) {
 						Plato a = new Plato(false);
