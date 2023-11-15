@@ -470,6 +470,7 @@ public class Tableroa extends JFrame implements Observer {
 				//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
 			}
 			
+			
 		}
 	}
 
