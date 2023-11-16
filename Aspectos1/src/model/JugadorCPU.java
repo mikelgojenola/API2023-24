@@ -18,14 +18,14 @@ public class JugadorCPU extends Jugador{
 	
 	//BESTE METODOAK	
 	//JOKALDIA EGIN METODOA
-	public void hacerJugada() {
+	public void hacerJugada(boolean rivalPlato) {
 		System.out.println(" ");
 		System.out.println("IA-ren txanda da.");
 		this.haUsadoMalo = false;
 		Carta k1 = null,k2 = null,k3 = null,k4 = null, baztertzekoCarta;
 		imprimirMano();
 		
-		boolean puedeHacerCombinaciones = this.getCombinaciones().konbinazioNormalikAhalDago2(getCartasMano(),this.platoKop, txandaZenbakia);
+		boolean puedeHacerCombinaciones = this.getCombinaciones().konbinazioNormalikAhalDago1(getCartasMano(),this.platoKop, txandaZenbakia, rivalPlato);
 		//if(!this.getCombinaciones().konbinazioNormalikAhalDago2(getCartasMano(),this.platoKop, txandaZenbakia)) {
 		if(puedeHacerCombinaciones == false) {
 			Iterator<Carta> itr = this.getCartasMano().getIterador();
@@ -83,7 +83,7 @@ public class JugadorCPU extends Jugador{
 		
 	}
 	
-	public void hacerJugada2(ArrayList<Integer> jokaldiCartak) {
+	public void hacerJugada2(ArrayList<Integer> jokaldiCartak, boolean rivalPlato) {
 		//TODO
 	}
 	

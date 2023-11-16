@@ -79,9 +79,9 @@ public abstract class Jugador{
 	
 	
 	//JOKALDIA EGIN METODOA
-	protected abstract void hacerJugada();
+	protected abstract void hacerJugada(boolean rivalPlato);
 	
-	protected abstract void hacerJugada2(ArrayList<Integer> jokaldiCartak);
+	protected abstract void hacerJugada2(ArrayList<Integer> jokaldiCartak, boolean rivalPlato);
 	
 	//JOKALDI EXTRA EGIN METODOA
 	protected abstract boolean hacerJugadaExtra();

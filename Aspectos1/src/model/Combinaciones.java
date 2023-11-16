@@ -87,7 +87,10 @@ public class Combinaciones {
 		return erantzuna;
 	}	
 	
-	public boolean konbinazioNormalikAhalDago2(ListaCarta listaCarta, int platoKop, int jokalaria)  {
+	
+	//A ESTE ENTRAN LAS CARTAS QUE SE HAN ELEGIDO EN LA VISTA, PA MIRAR SI LO QUE HA ELEGIDO ES UNA COMBINACIÓN
+	
+	public boolean konbinazioNormalikAhalDago2(ListaCarta listaCarta, int platoKop, int jokalaria, boolean rivalPlato)  {
 
 		boolean erantzuna = false;
 		
@@ -112,19 +115,63 @@ public class Combinaciones {
 			}
 		}
 		
-		if(chefKop >= 2) {
+		if(chefKop == 2 && platoKop >= 1) {
 			erantzuna = true;
 			tipoCombinacion = 1;
 		} 
-		if(chefKop >= 1 && rataKop >= 1 && cocinaKop >= 1) {
+		if(chefKop == 1 && rataKop == 1 && cocinaKop == 1) {
 			erantzuna = true;
 			tipoCombinacion = 2;
 		} 
-		if(maloKop >= 1) {
+		if(maloKop == 1 && rivalPlato == true) {
 			erantzuna = true;
 			tipoCombinacion = 3;
 		}
 		
+		return erantzuna;
+	}
+	
+	//A ESTE ENTRAN LAS CARTAS DEL BOT Y MIRA SI TIENE COMBINACIONES
+
+	public boolean konbinazioNormalikAhalDago1(ListaCarta listaCarta, int platoKop, int jokalaria, boolean rivalPlato)  {
+	
+		boolean erantzuna = false;
+		
+		int kont = 0;
+		int chefKop = 0;
+		int rataKop = 0;
+		int cocinaKop = 0;
+		int maloKop = 0;
+		
+		for(int j = 0; j < listaCarta.getTamaño(); j++) {
+			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Chef)) {
+				chefKop++;
+			}
+			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Rata)) {
+				rataKop++;
+			}
+			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Cocina)) {
+				cocinaKop++;
+			}
+			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Malo)) {
+				maloKop++;
+			}
+		}
+		
+		// MIRAR PRIORIDADES
+		
+		if(chefKop >= 2 && platoKop >= 1) {
+			erantzuna = true;
+			tipoCombinacion = 1;
+		} 
+		else if(maloKop >= 1 && rivalPlato == true) {
+			erantzuna = true;
+			tipoCombinacion = 3;
+		}
+		else if(chefKop >= 1 && rataKop >= 1 && cocinaKop >= 1) {
+			erantzuna = true;
+			tipoCombinacion = 2;
+		} 		
 		return erantzuna;
 	}
 }				
