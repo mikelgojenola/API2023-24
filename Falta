@@ -1,9 +1,12 @@
 ERRORES
 
-- El PC se añade mas de 4 cartas
+- El PC se añade mas de 4 cartas (He hecho varias pruebas y esto no me ha pasado)
 - Las cartas a veces no se actualizan
 
 - Da numeros negativos-> si Malo de ia quiere robar a humano, el humano se queda en puntos negativos 
 - Si la ia tiene por ejemplo: 2 chefs pero no tiene ningun plato -> no mueve ninguna ficha/// creo que solucionado
 - Si la ia tiene por ejemplo: Chef- Chef - Cocina -Rata -> no eliga chef + cocina + rata sino que elige chef + chef /// creo que solucionado tambien 
 
+FALTA
+- Todos los prints tienen que ser ventanas o mensajes que se vean en la vista (los que importen para el juego)
+- Acabar de traducir el código

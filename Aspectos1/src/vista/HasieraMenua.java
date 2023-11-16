@@ -122,7 +122,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnArauak() {
 		if(btnArauak == null) {
-			btnArauak = new JButton("Arauak");
+			btnArauak = new JButton("Reglamento");
 			btnArauak.addActionListener(getController());
 		}
 		return btnArauak;
@@ -130,7 +130,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnJokatu() {
 		if(btnJokatu == null) {
-			btnJokatu = new JButton("Jokatu");
+			btnJokatu = new JButton("Jugar");
 			btnJokatu.addActionListener(getController());
 		}
 		return btnJokatu;
@@ -138,7 +138,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnIrten() {
 		if(btnIrten == null) {
-			btnIrten = new JButton("Irten");
+			btnIrten = new JButton("Salir");
 			btnIrten.addActionListener(getController());
 		}
 		return btnIrten;

@@ -389,7 +389,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnCartaAldatu() {
 		if(btnCartaAldatu == null) {
 			btnCartaAldatu = new JButton();
-			btnCartaAldatu.setText("Carta aldatu");
+			btnCartaAldatu.setText("Cambiar carta");
 			btnCartaAldatu.addActionListener(getController());
 		}
 		return btnCartaAldatu;
@@ -398,7 +398,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnJokaldiaEgin() {
 		if(btnJokaldiaEgin == null) {
 			btnJokaldiaEgin = new JButton();
-			btnJokaldiaEgin.setText("Jokaldia egin");
+			btnJokaldiaEgin.setText("Hacer jugada");
 			btnJokaldiaEgin.addActionListener(getController());
 		}
 		return btnJokaldiaEgin;
@@ -420,11 +420,23 @@ public class Tableroa extends JFrame implements Observer {
 				if(getBtnCarta4().isSelected()) {
 					jokaldiCartakPos.add(4);
 				}
-				getBtnCarta1().setSelected(false);
-				getBtnCarta2().setSelected(false);
-				getBtnCarta3().setSelected(false);
-				getBtnCarta4().setSelected(false);
-				Juego.rondaJolastu2(jokaldiCartakPos);
+				if(jokaldiCartakPos.size() == 0) {
+					System.out.println("Tienes que elegir al menos una carta para jugar");
+				}
+				else if(jokaldiCartakPos.size() == 4) {
+					System.out.println("No puedes hacer ninguna jugada con cuatro cartas");
+					getBtnCarta1().setSelected(false);
+					getBtnCarta2().setSelected(false);
+					getBtnCarta3().setSelected(false);
+					getBtnCarta4().setSelected(false);
+				}
+				else {
+					getBtnCarta1().setSelected(false);
+					getBtnCarta2().setSelected(false);
+					getBtnCarta3().setSelected(false);
+					getBtnCarta4().setSelected(false);
+					Juego.rondaJolastu2(jokaldiCartakPos);
+				}
 				
 			}
 			else if(e.getSource().equals(btnCartaAldatu)) {
@@ -473,7 +485,7 @@ public class Tableroa extends JFrame implements Observer {
 				} else {
 					this.image = "/irudiak/" + rr.get(i) + ".png";
 				}
-				System.out.println(this.image);
+				//System.out.println(this.image);
 				ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
 				Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 				
@@ -513,9 +525,7 @@ public class Tableroa extends JFrame implements Observer {
 			
 			if (i == 8) {
 				this.limpiarLabelsPlatoHumano();
-				System.out.println("Esta entrando a i=8");
 				int num =  Integer.parseInt(rr.get(i));
-				System.out.println(num);
 				this.image = "/irudiak/plato1.png";
 				
 				ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
@@ -556,6 +566,7 @@ public class Tableroa extends JFrame implements Observer {
 						lblFotoDinero3.setIcon(new ImageIcon(image2));
 					}
 				}
+
 				
 			}
 			
@@ -563,7 +574,6 @@ public class Tableroa extends JFrame implements Observer {
 				//this.limpiarLabels();
 				
 				this.limpiarLabelsPlatoCPU();
-				System.out.println("Esta entrando a i=10");
 				int num =  Integer.parseInt(rr.get(i));
 				this.image = "/irudiak/plato1.png";
 				

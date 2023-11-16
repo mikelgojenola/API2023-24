@@ -26,7 +26,7 @@ public class Ganador extends JFrame{
 	public Ganador(String pNombre) {
 		nombre = pNombre;
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setPreferredSize(new Dimension(750,450));
+	    setPreferredSize(new Dimension(350,200));
 	    pack();
 	    setLocationRelativeTo(null);
 	    
