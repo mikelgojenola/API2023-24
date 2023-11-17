@@ -115,15 +115,15 @@ public class Combinaciones {
 			}
 		}
 		
-		if(chefKop == 2 && platoKop >= 1) {
+		if(chefKop == 2 && platoKop >= 1 && listaCarta.getTamaño() == 2) {
 			erantzuna = true;
 			tipoCombinacion = 1;
 		} 
-		if(chefKop == 1 && rataKop == 1 && cocinaKop == 1) {
+		if(chefKop == 1 && rataKop == 1 && cocinaKop == 1 && listaCarta.getTamaño() == 3) {
 			erantzuna = true;
 			tipoCombinacion = 2;
 		} 
-		if(maloKop == 1 && rivalPlato == true) {
+		if(maloKop == 1 && rivalPlato == true && listaCarta.getTamaño() == 1) {
 			erantzuna = true;
 			tipoCombinacion = 3;
 		}
