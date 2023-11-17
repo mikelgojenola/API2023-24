@@ -115,6 +115,9 @@ public class Combinaciones {
 			}
 		}
 		
+		//antes si elegias dos chefs y otra carta teniendo plato te sumaba punto y te descartaba las tres cartas (o cuatro) y pasaba con las demás combinaciones también
+		//ahora no, pero si haces esto el bot hace su jugada (como que pierdes turno por haber elegido mal)
+		
 		if(chefKop == 2 && platoKop >= 1 && listaCarta.getTamaño() == 2) {
 			erantzuna = true;
 			tipoCombinacion = 1;
