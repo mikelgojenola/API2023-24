@@ -255,48 +255,50 @@ public class Juego extends Observable{
 			
 		}else {
 			
-			getLista()[j].hacerJugada2(jokaldiCartak, getLista()[m].getPlatoKop() >= 1);
-			if (getLista()[j].getHaUsadoMalo()) {
-				if (!getLista()[m].hacerJugadaExtra()) {
-					Plato a = new Plato(false);
-					getLista()[j].getPlatosMano().sumaPlato(a);
-					getLista()[m].getPlatosMano().quitaPlato(0);
-					getLista()[j].platoKop++;
-					getLista()[m].platoKop--; 
-				}
-				getLista()[j].imprimirMano();
-				getLista()[j].resetMalo();
-			}
-			ArrayList<String> listaInfo1 = getInfoUpdate();
-			Juego.getMiJuego().setChanged();
-			Juego.getMiJuego().notifyObservers(listaInfo1);
+			getLista()[j].hacerJugada2(jokaldiCartak, getLista()[m].getPlatoKop() >= 1); // Le pasamos sus cartas seleccionadas y si el rival tiene algún plato.
+			if(!getLista()[j].noCombinaciones()){
 			
-			
-			if (getLista()[j].getPuntos() != 3) {
-				getLista()[m].hacerJugada(getLista()[j].getPlatoKop() >= 1);
-				if (getLista()[m].getHaUsadoMalo()) {
-					if (!getLista()[j].hacerJugadaExtra()) {
+				if (getLista()[j].getHaUsadoMalo()) {
+					if (!getLista()[m].hacerJugadaExtra()) {
 						Plato a = new Plato(false);
-						getLista()[m].getPlatosMano().sumaPlato(a);
-						getLista()[j].getPlatosMano().quitaPlato(0);
-						getLista()[m].platoKop++;
-						getLista()[j].platoKop--; 
-
-					}	
-					getLista()[1].imprimirMano();
-					getLista()[m].resetMalo();
+						getLista()[j].getPlatosMano().sumaPlato(a);
+						getLista()[m].getPlatosMano().quitaPlato(0);
+						getLista()[j].platoKop++;
+						getLista()[m].platoKop--; 
+					}
+					getLista()[j].imprimirMano();
+					getLista()[j].resetMalo();
 				}
-				ArrayList<String> listaInfo2 = getInfoUpdate();
+				ArrayList<String> listaInfo1 = getInfoUpdate();
 				Juego.getMiJuego().setChanged();
-				Juego.getMiJuego().notifyObservers(listaInfo2);
+				Juego.getMiJuego().notifyObservers(listaInfo1);
+				
+				
+				if (getLista()[j].getPuntos() != 3) {
+					getLista()[m].hacerJugada(getLista()[j].getPlatoKop() >= 1); // Le pasamos si el rival tiene algún plato.
+					if (getLista()[m].getHaUsadoMalo()) {
+						if (!getLista()[j].hacerJugadaExtra()) {
+							Plato a = new Plato(false);
+							getLista()[m].getPlatosMano().sumaPlato(a);
+							getLista()[j].getPlatosMano().quitaPlato(0);
+							getLista()[m].platoKop++;
+							getLista()[j].platoKop--; 
+	
+						}	
+						getLista()[1].imprimirMano();
+						getLista()[m].resetMalo();
+					}
+					ArrayList<String> listaInfo2 = getInfoUpdate();
+					Juego.getMiJuego().setChanged();
+					Juego.getMiJuego().notifyObservers(listaInfo2);
+				
+				}else {
+					System.out.println("Jokua bukatu da");
+					getLista()[0].mensajeGanador();
+					Ganador g = new Ganador("Tu");
+				}
 			
-			}else {
-				System.out.println("Jokua bukatu da");
-				getLista()[0].mensajeGanador();
-				Ganador g = new Ganador("Tu");
 			}
-			
-			
 		}
 
 		

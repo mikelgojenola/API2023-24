@@ -7,6 +7,7 @@ public class JugadorNormal extends Jugador {
 	
 	//ATRIBUTUAK
 	private int txandaZenbakia;
+	public boolean combIncorrecta = false;
 	
 	
 	//ERAIKITZAILEA
@@ -110,7 +111,7 @@ public class JugadorNormal extends Jugador {
 							i = -1;
 						}
 					}
-					if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//oilo oilo
+					if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//cocinero cocinero
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 						this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
@@ -119,7 +120,7 @@ public class JugadorNormal extends Jugador {
 						this.puntos++;
 						this.platoKop--;
 						imprimirMano();
-					} else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 2) {//oilo oilar habia
+					} else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 2) {//Cocinero, rata, cocina
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Rata));
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Cocina));
@@ -129,7 +130,7 @@ public class JugadorNormal extends Jugador {
 						this.getPlatosMano().sumaPlato(ListaPlatoHartzeko.getNireListaPlatoHartzeko().banaketa());
 						this.platoKop++;
 						imprimirMano();				
-					}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3) {//zorro
+					}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3) {//Malo
 						this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Malo));
 						this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());						
 						this.haUsadoMalo = true;				
@@ -150,9 +151,12 @@ public class JugadorNormal extends Jugador {
 			}
 			if (!this.getCombinaciones().konbinazioNormalikAhalDago2(lista, this.platoKop, txandaZenbakia, rivalPlato)) {
 				System.out.println("Descarta carta, no tienes combinaciones");
+				combIncorrecta = true;
+				
 			}
 			else {
-				if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//oilo oilo
+				if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//cocinero cocinero
+					combIncorrecta = false;
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
@@ -161,7 +165,9 @@ public class JugadorNormal extends Jugador {
 					this.puntos++;
 					this.platoKop--;
 					imprimirMano();
-				} else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 2) {//oilo oilar habia
+					System.out.println("Has usado cocinero cocinero, ganas un punto");
+				} else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 2) {//Cocinero, rata, cocina
+					combIncorrecta = false;
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Rata));
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Cocina));
@@ -170,15 +176,25 @@ public class JugadorNormal extends Jugador {
 					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
 					this.getPlatosMano().sumaPlato(ListaPlatoHartzeko.getNireListaPlatoHartzeko().banaketa());
 					this.platoKop++;
-					imprimirMano();				
-				}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3) {//zorro
+					imprimirMano();		
+					System.out.println("Has usado cocinero, rata, cocina, consigues un plato");
+				}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3) {//Malo
+					combIncorrecta = false;
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Malo));
 					this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());						
 					this.haUsadoMalo = true;	
-					imprimirMano();				
-				}
+					imprimirMano();
+					System.out.println("Has usado Malo, intentarás robar un plato");
+				}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() != 3 && Combinaciones.getMisCombinaciones().getTipoCombinacion() != 2 && Combinaciones.getMisCombinaciones().getTipoCombinacion() != 1){
+					combIncorrecta = true;
+					System.out.println("Combinación incorrecta");
+					}
 			}
 		}
+	}
+	
+	public boolean noCombinaciones() {
+		return combIncorrecta;
 	}
 	
 	public void desCartatu(int kPos) {

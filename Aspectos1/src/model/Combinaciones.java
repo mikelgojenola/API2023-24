@@ -93,7 +93,7 @@ public class Combinaciones {
 	public boolean konbinazioNormalikAhalDago2(ListaCarta listaCarta, int platoKop, int jokalaria, boolean rivalPlato)  {
 
 		boolean erantzuna = false;
-		
+		tipoCombinacion = 0;
 		int kont = 0;
 		int chefKop = 0;
 		int rataKop = 0;
@@ -117,6 +117,7 @@ public class Combinaciones {
 		
 		//antes si elegias dos chefs y otra carta teniendo plato te sumaba punto y te descartaba las tres cartas (o cuatro) y pasaba con las demás combinaciones también
 		//ahora no, pero si haces esto el bot hace su jugada (como que pierdes turno por haber elegido mal)
+		System.out.println("N�mero de cartas seleccionadas: " + listaCarta.getTamano());
 		
 		if(chefKop == 2 && platoKop >= 1 && listaCarta.getTamano() == 2) {
 			erantzuna = true;

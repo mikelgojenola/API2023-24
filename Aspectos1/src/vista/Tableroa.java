@@ -420,24 +420,19 @@ public class Tableroa extends JFrame implements Observer {
 				if(getBtnCarta4().isSelected()) {
 					jokaldiCartakPos.add(4);
 				}
-				if(jokaldiCartakPos.size() == 0) {
-					System.out.println("Tienes que elegir al menos una carta para jugar");
-				}
-				else if(jokaldiCartakPos.size() == 4) {
-					System.out.println("No puedes hacer ninguna jugada con cuatro cartas");
-					getBtnCarta1().setSelected(false);
-					getBtnCarta2().setSelected(false);
-					getBtnCarta3().setSelected(false);
-					getBtnCarta4().setSelected(false);
-				}
-				else {
-					getBtnCarta1().setSelected(false);
-					getBtnCarta2().setSelected(false);
-					getBtnCarta3().setSelected(false);
-					getBtnCarta4().setSelected(false);
+				getBtnCarta1().setSelected(false);
+				getBtnCarta2().setSelected(false);
+				getBtnCarta3().setSelected(false);
+				getBtnCarta4().setSelected(false);
+				if(jokaldiCartakPos.size() != 4 && jokaldiCartakPos.size() != 0) {
+					System.out.println("Número de cartas seleccionadas apropiado");
 					Juego.rondaJolastu2(jokaldiCartakPos);
+					}
+				else if(jokaldiCartakPos.size() == 4 || jokaldiCartakPos.size() == 0) {
+					// Ventana emergente para avisar de cuales son las 3 jugadas posibles.
+					System.out.println("Número de cartas seleccionadas inapropiado");
+					jokaldiCartakPos = new ArrayList<Integer>();
 				}
-				
 			}
 			else if(e.getSource().equals(btnCartaAldatu)) {
 				ArrayList<Integer> jokaldiCartakPos = new ArrayList<Integer>();
@@ -464,6 +459,7 @@ public class Tableroa extends JFrame implements Observer {
 					jokaldiCartakPos.add(-1);
 					Juego.rondaJolastu2(jokaldiCartakPos);
 				} else {
+					// Ventana emergente para avisar de que al descartar se debe elegir UNA carta.
 					System.out.println("ï¿½Tienes que elegir UNA carta para descartar!");
 				}
 			}

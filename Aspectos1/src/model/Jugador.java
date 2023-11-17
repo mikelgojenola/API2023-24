@@ -16,6 +16,7 @@ public abstract class Jugador{
 	protected int platoKop;
 	protected int numTurno;
 	
+	
 	//ERAIKITZAILEA
 	protected Jugador(int pAdina) {
 		this.cartasMano = new ListaCarta();
@@ -26,6 +27,10 @@ public abstract class Jugador{
 	}	
 	
 	//BESTE METODOAK
+	//GET NO SE HA SELECCIONADO UNA COMBINACIÓN VÁLIDA
+	public boolean noCombinaciones() {
+		return false;
+	}
 	//GET  ESKUKO CartaK METODOA
 	protected ListaCarta getCartasMano(){
 		return this.cartasMano;

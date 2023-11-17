@@ -23,7 +23,7 @@ public class ListaCarta {
 	
 	//GET Carta KOPURUA
 	public int getTamano() {
-		return lista.size();
+		return CartaKop;
 	}
 	
 	//KENDU Carta METODOA
