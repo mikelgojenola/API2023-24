@@ -22,7 +22,7 @@ public class ListaCarta {
 	}
 	
 	//GET Carta KOPURUA
-	public int getTamaño() {
+	public int getTamano() {
 		return lista.size();
 	}
 	

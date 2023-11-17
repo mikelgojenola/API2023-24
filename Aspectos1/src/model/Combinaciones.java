@@ -100,7 +100,7 @@ public class Combinaciones {
 		int cocinaKop = 0;
 		int maloKop = 0;
 		
-		for(int j = 0; j < listaCarta.getTamaño(); j++) {
+		for(int j = 0; j < listaCarta.getTamano(); j++) {
 			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Chef)) {
 				chefKop++;
 			}
@@ -118,15 +118,15 @@ public class Combinaciones {
 		//antes si elegias dos chefs y otra carta teniendo plato te sumaba punto y te descartaba las tres cartas (o cuatro) y pasaba con las demás combinaciones también
 		//ahora no, pero si haces esto el bot hace su jugada (como que pierdes turno por haber elegido mal)
 		
-		if(chefKop == 2 && platoKop >= 1 && listaCarta.getTamaño() == 2) {
+		if(chefKop == 2 && platoKop >= 1 && listaCarta.getTamano() == 2) {
 			erantzuna = true;
 			tipoCombinacion = 1;
 		} 
-		if(chefKop == 1 && rataKop == 1 && cocinaKop == 1 && listaCarta.getTamaño() == 3) {
+		if(chefKop == 1 && rataKop == 1 && cocinaKop == 1 && listaCarta.getTamano() == 3) {
 			erantzuna = true;
 			tipoCombinacion = 2;
 		} 
-		if(maloKop == 1 && rivalPlato == true && listaCarta.getTamaño() == 1) {
+		if(maloKop == 1 && rivalPlato == true && listaCarta.getTamano() == 1) {
 			erantzuna = true;
 			tipoCombinacion = 3;
 		}
@@ -146,7 +146,7 @@ public class Combinaciones {
 		int cocinaKop = 0;
 		int maloKop = 0;
 		
-		for(int j = 0; j < listaCarta.getTamaño(); j++) {
+		for(int j = 0; j < listaCarta.getTamano(); j++) {
 			if(listaCarta.getCarta(j).getTipo().equals(TipoCartas.Chef)) {
 				chefKop++;
 			}
