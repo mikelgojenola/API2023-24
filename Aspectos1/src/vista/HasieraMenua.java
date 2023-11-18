@@ -172,6 +172,7 @@ public class HasieraMenua extends JFrame {
 	
 	public void partidaPrestatu(String n, int e) {
 		Tableroa tableroa = new Tableroa(n);
+		Consola con = new Consola();
 		int j,m;
 		//System.out.println("Sartu zure nick-a");
 		//String izena = Teklatua.getNireTeklatua().irakurriString();

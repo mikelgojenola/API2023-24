@@ -4,6 +4,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import vista.Consola;
+
 public class JugadorCPU extends Jugador{
 	//ATRIBUTUAK
 	
@@ -39,7 +41,9 @@ public class JugadorCPU extends Jugador{
 			this.getCartasMano().quitarCartaConCarta(baztertzekoCarta);					
 			this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
 			imprimirMano();
-			System.out.println("Makinak Carta bat baztertu du eta beste bat hartu du.");
+			System.out.println("La máquina ha descartado una carta");
+			Consola.cambiarTexto("La máquina ha descartado una carta");
+			Consola.cambiarTexto2("");
 		}else {
 			if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 1) {//doble oilo
 				if (this.platoKop >= 1) {
@@ -50,7 +54,10 @@ public class JugadorCPU extends Jugador{
 					this.puntos++;
 					this.platoKop--;
 					imprimirMano();
-					System.out.println("La maquina ha utilizado Chef + Chef + Plato para conseguir un punto.");
+					System.out.println("La máquina ha utilizado Chef + Chef + Plato para conseguir un punto.");
+					Consola.cambiarTexto("La máquina ha utilizado Chef + Chef + Plato para conseguir un punto.");
+					Consola.cambiarTexto2("");
+
 				}else {
 					puedeHacerCombinaciones = false;
 					this.getCartasMano().quitarCartaConCarta(this.getCartasMano().baztertuCartaMotaJakinda(TipoCartas.Chef));
@@ -70,6 +77,9 @@ public class JugadorCPU extends Jugador{
 				this.platoKop++;
 				imprimirMano();
 				System.out.println("La maquina ha utilizado Chef + Rata + Cocina para obtener un plato.");
+				Consola.cambiarTexto("La maquina ha utilizado Chef + Rata + Cocina para obtener un plato.");
+				Consola.cambiarTexto2("");
+
 				
 			}else if (Combinaciones.getMisCombinaciones().getTipoCombinacion() == 3){//zorro
 				
@@ -78,6 +88,7 @@ public class JugadorCPU extends Jugador{
 				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());					
 				this.haUsadoMalo = true;
 				System.out.println("La maquina ha utilizado al Malo para robarte un plato.");
+				Consola.cambiarTexto("La maquina ha utilizado al Malo para robarte un plato.");
 			}
 		}
 		
@@ -122,9 +133,11 @@ public class JugadorCPU extends Jugador{
 				this.getCartasMano().meteCarta(BarajaInicial.getMiBarajaInicial().reparto());
 				kont++;						
 			}	
-			System.out.println("Makinak bere Plato defendatu du bi oilar erabiliz.");
+			System.out.println("La máquina ha defendido su plato con dos ratas");
+			Consola.cambiarTexto2("La máquina ha defendido su plato con dos ratas");
 		}else {
-			System.out.println("Makinak ez du Plato defendatzeko aukerarik.");
+			System.out.println("La máquina no se ha podido defender");
+			Consola.cambiarTexto2("La máquina no se ha podido defender");
 		}
 		return erantzuna;
 	}

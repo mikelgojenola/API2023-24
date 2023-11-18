@@ -31,7 +31,7 @@ public class Ganador extends JFrame{
 	    setLocationRelativeTo(null);
 	    
 	    panelPrincipal = new JPanel();
-	    this.setTitle("Arauak");
+	    this.setTitle("Ganador");
 	    panelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 	    setContentPane(panelPrincipal);
 	    panelPrincipal.setLayout(new BorderLayout(0, 0));

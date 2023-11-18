@@ -212,6 +212,9 @@ public class Juego extends Observable{
 			}
 			getLista()[0].imprimirMano();
 		}	
+		ArrayList<String> listaInfo = getInfoUpdate();
+		Juego.getMiJuego().setChanged();
+		Juego.getMiJuego().notifyObservers(listaInfo);
 	}
 	
 	//RONDA JOLASTU METODOA
