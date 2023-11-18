@@ -166,10 +166,10 @@ public class Juego extends Observable{
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(Tableroa);
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(Tableroa);
-		jokoaBerrabiarazi();
+		reiniciarJuego();
 		repartirCartas();
 		if(m == 0) {
-			lehenRondaJolastu();
+			jugarPrimeraRonda();
 		}
 		/*while (!bukaera()) {
 			rondaJolastu();		
@@ -183,7 +183,7 @@ public class Juego extends Observable{
 	
 	
 	//JOKOA BERRABIARAZI METODOA
-	public static void jokoaBerrabiarazi() {
+	public static void reiniciarJuego() {
 		getLista()[0].resetearTodo();
 		getLista()[1].resetearTodo();
 		BarajaInicial.getMiBarajaInicial().reset();
@@ -192,7 +192,7 @@ public class Juego extends Observable{
 	
 	
 	//BUKAERA METODOA
-	public static boolean bukaera() {
+	public static boolean fin() {
 		boolean erantzuna = false;
 		if (getLista()[0].getPuntos() == 3 || getLista()[1].getPuntos() == 3){
 			erantzuna = true;
@@ -200,7 +200,7 @@ public class Juego extends Observable{
 		return erantzuna;
 	}
 	
-	private static void lehenRondaJolastu() {
+	private static void jugarPrimeraRonda() {
 		getLista()[0].hacerJugada(false);
 		if (getLista()[0].getHaUsadoMalo()) {
 			if (!getLista()[1].hacerJugadaExtra()) {
@@ -215,7 +215,7 @@ public class Juego extends Observable{
 	}
 	
 	//RONDA JOLASTU METODOA
-	public static void rondaJolastu() {	
+	public static void jugarRonda() {	
 		System.out.println("---------------------------------------------------");
 		getLista()[0].hacerJugada(getLista()[m].getPlatoKop() >= 1);
 		if (getLista()[0].getHaUsadoMalo()) {
@@ -248,7 +248,7 @@ public class Juego extends Observable{
 
 	}
 	
-	public static void rondaJolastu2(ArrayList<Integer> jokaldiCartak) {
+	public static void jugarRonda2(ArrayList<Integer> jokaldiCartak) {
 		
 		if(getLista()[m].getPuntos() == 3) {
 			Ganador g = new Ganador("Maquina");

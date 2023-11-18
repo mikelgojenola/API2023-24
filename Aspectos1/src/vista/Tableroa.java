@@ -426,7 +426,7 @@ public class Tableroa extends JFrame implements Observer {
 				getBtnCarta4().setSelected(false);
 				if(jokaldiCartakPos.size() != 4 && jokaldiCartakPos.size() != 0) {
 					System.out.println("Número de cartas seleccionadas apropiado");
-					Juego.rondaJolastu2(jokaldiCartakPos);
+					Juego.jugarRonda2(jokaldiCartakPos);
 					}
 				else if(jokaldiCartakPos.size() == 4 || jokaldiCartakPos.size() == 0) {
 					// Ventana emergente para avisar de cuales son las 3 jugadas posibles.
@@ -457,7 +457,7 @@ public class Tableroa extends JFrame implements Observer {
 					jokaldiCartakPos.add(-1);
 					jokaldiCartakPos.add(-1);
 					jokaldiCartakPos.add(-1);
-					Juego.rondaJolastu2(jokaldiCartakPos);
+					Juego.jugarRonda2(jokaldiCartakPos);
 				} else {
 					// Ventana emergente para avisar de que al descartar se debe elegir UNA carta.
 					System.out.println("ï¿½Tienes que elegir UNA carta para descartar!");
