@@ -1,6 +1,6 @@
 package model;
 
-public enum KartaMotak {
+public enum TipoCartas {
 	Rata,
 	Chef,
 	Cocina,

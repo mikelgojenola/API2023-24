@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.JokalariArrunta;
-import model.JokalariCPU;
-import model.ListaJokalaria;
+import model.JugadorNormal;
+import model.JugadorCPU;
+import model.Juego;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -122,7 +122,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnArauak() {
 		if(btnArauak == null) {
-			btnArauak = new JButton("Arauak");
+			btnArauak = new JButton("Reglamento");
 			btnArauak.addActionListener(getController());
 		}
 		return btnArauak;
@@ -130,7 +130,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnJokatu() {
 		if(btnJokatu == null) {
-			btnJokatu = new JButton("Jokatu");
+			btnJokatu = new JButton("Jugar");
 			btnJokatu.addActionListener(getController());
 		}
 		return btnJokatu;
@@ -138,7 +138,7 @@ public class HasieraMenua extends JFrame {
 	
 	private JButton getBtnIrten() {
 		if(btnIrten == null) {
-			btnIrten = new JButton("Irten");
+			btnIrten = new JButton("Salir");
 			btnIrten.addActionListener(getController());
 		}
 		return btnIrten;
@@ -195,12 +195,12 @@ public class HasieraMenua extends JFrame {
 			j = 0;
 			m = 1;
 		}
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[j] = new JokalariArrunta(n,e,j);
+		Juego.getMiJuego().getLista()[j] = new JugadorNormal(n,e,j);
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[j].addObserver(tableroa);
-		ListaJokalaria.getNireListaJokalariak().getZerrenda()[m] = new JokalariCPU(adinaCPU,m);
+		Juego.getMiJuego().getLista()[m] = new JugadorCPU(adinaCPU,m);
 		//ListaJokalaria.getNireListaJokalariak().getZerrenda()[m].addObserver(tableroa);
-		ListaJokalaria.getNireListaJokalariak().addObserver(tableroa);
-		ListaJokalaria.partidaJolastu(j,m);
+		Juego.getMiJuego().addObserver(tableroa);
+		Juego.partidaJolastu(j,m);
 	}
 	
 
@@ -217,6 +217,7 @@ public class HasieraMenua extends JFrame {
 	private JTextField getTxtfldEdad() {
 		if (txtfldEdad == null) {
 			txtfldEdad = new JTextField();
+			txtfldEdad.setText("20");
 			txtfldEdad.setColumns(10);
 		}
 		return txtfldEdad;
@@ -230,6 +231,7 @@ public class HasieraMenua extends JFrame {
 	private JTextField getTxtfldNombre() {
 		if (txtfldNombre == null) {
 			txtfldNombre = new JTextField();
+			txtfldNombre.setText("Player");
 			txtfldNombre.setColumns(10);
 		}
 		return txtfldNombre;

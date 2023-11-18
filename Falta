@@ -1,10 +1,18 @@
 ERRORES
-- Cuando empieza el PC y utiliza un zorro se peta el juego
-- Cuando el PC usa un Malo para robar un plato y te puedes defender, se peta
-- Cuando el PC usa dos chefs consigue punto aunque no tenga plato
-- El PC a veces juega dos turnos cuando le toca empezar
+
+- El PC se añade mas de 4 cartas (He hecho varias pruebas y esto no me ha pasado)
+- Las cartas a veces no se actualizan
+
+- Da numeros negativos-> si Malo de ia quiere robar a humano, el humano se queda en puntos negativos 
+- Si la ia tiene por ejemplo: 2 chefs pero no tiene ningun plato -> no mueve ninguna ficha/// creo que solucionado
+- Si la ia tiene por ejemplo: Chef- Chef - Cocina -Rata -> no eliga chef + cocina + rata sino que elige chef + chef /// creo que solucionado tambien 
 
 FALTA
+<<<<<<< HEAD
 - Actualizar los platos y puntos en la vista
 - Traducir las normas a castellano
 - Cambiar nombres de metodos (oilar -> Rata, azeria -> Malo, oilo -> Chef, habia -> cocina)
+=======
+- Todos los prints tienen que ser ventanas o mensajes que se vean en la vista (los que importen para el juego)
+- Acabar de traducir el código
+>>>>>>> branch 'master' of https://github.com/mikelgojenola/API2023-24.git
