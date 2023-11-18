@@ -425,12 +425,12 @@ public class Tableroa extends JFrame implements Observer {
 				getBtnCarta3().setSelected(false);
 				getBtnCarta4().setSelected(false);
 				if(jokaldiCartakPos.size() != 4 && jokaldiCartakPos.size() != 0) {
-					System.out.println("Número de cartas seleccionadas apropiado");
+					System.out.println("Nï¿½mero de cartas seleccionadas apropiado");
 					Juego.jugarRonda2(jokaldiCartakPos);
 					}
 				else if(jokaldiCartakPos.size() == 4 || jokaldiCartakPos.size() == 0) {
 					// Ventana emergente para avisar de cuales son las 3 jugadas posibles.
-					System.out.println("Número de cartas seleccionadas inapropiado");
+					System.out.println("Nï¿½mero de cartas seleccionadas inapropiado");
 					jokaldiCartakPos = new ArrayList<Integer>();
 				}
 			}
@@ -502,19 +502,42 @@ public class Tableroa extends JFrame implements Observer {
 					//btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
 				} 
 				if (i == 4) {
-					lblFotoCarta5.setIcon(new ImageIcon(image));
+					
+					
+					this.image = "/irudiak/naipes.PNG";
+					
+					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+					lblFotoCarta5.setIcon(new ImageIcon(image2));
 					//btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
 				} 
 				if (i == 5) {
-					lblFotoCarta6.setIcon(new ImageIcon(image));
+					
+					this.image = "/irudiak/naipes.PNG";
+					
+					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+					lblFotoCarta6.setIcon(new ImageIcon(image2));
 					//btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
 				} 
 				if (i == 6) {
-					lblFotoCarta7.setIcon(new ImageIcon(image));
+					
+					this.image = "/irudiak/naipes.PNG";
+					
+					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+					
+					lblFotoCarta7.setIcon(new ImageIcon(image2));
 					//btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
 				} 
 				if (i == 7) {
-					lblFotoCarta8.setIcon(new ImageIcon(image));
+					
+					
+					this.image = "/irudiak/naipes.PNG";
+					
+					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
+					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
+					lblFotoCarta8.setIcon(new ImageIcon(image2));
 					//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
 				} 
 			}
