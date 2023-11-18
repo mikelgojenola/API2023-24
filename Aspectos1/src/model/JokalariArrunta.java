@@ -208,6 +208,25 @@ public class JokalariArrunta extends Jokalaria {
 		return erantzuna;
 	}
 	
+	public boolean jokaldiExtraEgin2() {
+		boolean erantzuna = false;
+		if (this.getEskukoKartak().defendatuDezaket()) {
+			System.out.println("Aukeratu kartak defendatzeko");
+			s1 = Teklatua.getNireTeklatua().irakurriOsoa();
+			s2 = Teklatua.getNireTeklatua().irakurriOsoa();
+			this.getEskukoKartak().kenduKartaZenbakiz(s2-1);
+			this.getEskukoKartak().kenduKartaZenbakiz(s1-1);
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());
+			this.getEskukoKartak().gehituKarta(HasierakoBaraja.getNireHasierakoBaraja().banaketa());	
+			erantzuna = true;
+		}
+		return erantzuna;
+	}
+	
+	private void defendatu() {
+		
+	}
+	
 	
 	
 	

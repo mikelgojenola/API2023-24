@@ -277,10 +277,12 @@ public class ListaJokalaria extends Observable{
 				getZerrenda()[1].imprimatuEskua();
 				getZerrenda()[m].resetAzeria();
 			}
+			/*
 			System.out.println("333333333333333333333333333333333333333333333333");
 			System.out.println("####################################################");
 			System.out.println(getZerrenda()[j].getEskukoKartak().getTamaina());
 			System.out.println("####################################################");
+			*/
 		}else {
 			System.out.println("Jokua bukatu da");
 			getZerrenda()[0].irabazleMezua();
