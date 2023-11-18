@@ -307,7 +307,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnCarta5() {
 		if(btnCarta5 == null) {
 			btnCarta5 = new JButton();
-		    btnCarta5.setPreferredSize(new Dimension(100, 170));
+		    btnCarta5.setPreferredSize(new Dimension(120, 170));
 		    btnCarta5.setLayout(new BorderLayout());
 
 			btnCarta5.add(new JLabel("Carta 5"), BorderLayout.NORTH);
@@ -321,7 +321,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnCarta6() {
 		if(btnCarta6 == null) {
 			btnCarta6 = new JButton();
-		    btnCarta6.setPreferredSize(new Dimension(100, 170));
+		    btnCarta6.setPreferredSize(new Dimension(120, 170));
 		    btnCarta6.setLayout(new BorderLayout());
 
 			btnCarta6.add(new JLabel("Carta 6"), BorderLayout.NORTH);
@@ -335,7 +335,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnCarta7() {
 		if(btnCarta7 == null) {
 			btnCarta7 = new JButton();
-		    btnCarta7.setPreferredSize(new Dimension(100, 170));
+		    btnCarta7.setPreferredSize(new Dimension(120, 170));
 		    btnCarta7.setLayout(new BorderLayout());
 
 			btnCarta7.add(new JLabel("Carta 7"), BorderLayout.NORTH);
@@ -350,7 +350,7 @@ public class Tableroa extends JFrame implements Observer {
 	private JButton getBtnCarta8() {
 		if(btnCarta8 == null) {
 			btnCarta8 = new JButton();
-		    btnCarta8.setPreferredSize(new Dimension(100, 170));
+		    btnCarta8.setPreferredSize(new Dimension(120, 170));
 		    btnCarta8.setLayout(new BorderLayout());
 
 			btnCarta8.add(new JLabel("Carta 8"), BorderLayout.NORTH);
