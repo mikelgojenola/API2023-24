@@ -157,7 +157,7 @@ public class HasieraMenua extends JFrame {
 				frame.dispose();
 			}
 			if(e.getSource().equals(btnArauak)) {
-				Arauak arauak = new Arauak();
+				Normas arauak = new Normas();
 			}
 			if(e.getSource().equals(btnJokatu)) {
 				String nombre = HasieraMenua.this.txtfldNombre.getText();

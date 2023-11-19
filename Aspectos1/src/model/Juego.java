@@ -270,9 +270,6 @@ public class Juego extends Observable{
 					getLista()[j].imprimirMano();
 					getLista()[j].resetMalo();
 				}
-				ArrayList<String> listaInfo1 = getInfoUpdate();
-				Juego.getMiJuego().setChanged();
-				Juego.getMiJuego().notifyObservers(listaInfo1);
 				
 				
 				if (getLista()[j].getPuntos() != 3) {
@@ -289,9 +286,7 @@ public class Juego extends Observable{
 						getLista()[1].imprimirMano();
 						getLista()[m].resetMalo();
 					}
-					ArrayList<String> listaInfo2 = getInfoUpdate();
-					Juego.getMiJuego().setChanged();
-					Juego.getMiJuego().notifyObservers(listaInfo2);
+					
 				
 				}else {
 					System.out.println("Jokua bukatu da");
@@ -300,6 +295,9 @@ public class Juego extends Observable{
 				}
 			
 			}
+			ArrayList<String> listaInfo = getInfoUpdate();
+			Juego.getMiJuego().setChanged();
+			Juego.getMiJuego().notifyObservers(listaInfo);
 		}
 
 		
