@@ -73,7 +73,7 @@ public class Normas extends JFrame{
 			txtrNormas = new JTextArea();
 			txtrNormas.setEditable(false);
 			txtrNormas.setBackground(new Color(240, 240, 240));
-			txtrNormas.setText("\r\nOBJETIVO: conseguir 3 puntos antes que el rival.\r\n\r\n--- NORMAS ---\r\n\r\n1. Cada jugador tomara 4 cartas y comenzara el jugador mas joven.\r\n2. Despues de hacer la jugada se descartan las cartas utilizadas y se toman unas nuevas hasta que sean 4.\r\n3. En tu turno podras hacer una jugada o descartar una carta. \r\n\r\n--- COMBINACIONES ---\r\n\r\n1. Chef/Rata/Cocina = Hacer un plato \r\n2. Chef/Chef = Convertir un plato en un punto \r\n3. Chef malo = Si el adversario tiene un plato intenta robarlo \r\n4. Rata/Rata = Si el adversario ataca con el malo te defenderas automaticamente usando esta combinacion si tienes las cartas necesarias");
+			txtrNormas.setText("\r\nOBJETIVO: conseguir 3 puntos antes que el rival.\r\n\r\n--- NORMAS ---\r\n\r\n1. Cada jugador tomara 4 cartas y comenzara el jugador mas joven.\r\n2. Despues de hacer la jugada se descartan las cartas utilizadas y se toman unas nuevas hasta que sean 4.\r\n3. En tu turno podras hacer una jugada o descartar una carta. \r\n\r\n--- COMBINACIONES ---\r\n\r\n1. Chef/Rata/Cocina = Hacer un plato \r\n2. Chef/Chef = Convertir un plato en un punto \r\n3. Chef malo = Si el adversario tiene un plato intenta robarlo \r\n4. Rata/Rata = Si el adversario usa el chef malo te defiendes automaticamente con esta combinacion si tienes las cartas necesarias");
 			
 		
 		
