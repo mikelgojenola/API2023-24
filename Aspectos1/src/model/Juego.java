@@ -129,8 +129,6 @@ public class Juego extends Observable{
 		}
 		listaKonbinao.addAll(listaJok);
 		listaKonbinao.addAll(listaPC);
-		//TODO listaKonbinao.add(Integer.toString(platos y lo mismo con dinero))
-		//eguneratuar bista
 		Juego.getMiJuego().setChanged();
 		Juego.getMiJuego().notifyObservers(listaKonbinao);
 	}		
@@ -258,7 +256,7 @@ public class Juego extends Observable{
 			
 		}else {
 			
-			getLista()[j].hacerJugada2(jokaldiCartak, getLista()[m].getPlatoKop() >= 1); // Le pasamos sus cartas seleccionadas y si el rival tiene algún plato.
+			getLista()[j].hacerJugada2(jokaldiCartak, getLista()[m].getPlatoKop() >= 1); // Le pasamos sus cartas seleccionadas y si el rival tiene algï¿½n plato.
 			if(!getLista()[j].noCombinaciones()){
 			
 				if (getLista()[j].getHaUsadoMalo()) {
@@ -278,7 +276,7 @@ public class Juego extends Observable{
 				
 				
 				if (getLista()[j].getPuntos() != 3) {
-					getLista()[m].hacerJugada(getLista()[j].getPlatoKop() >= 1); // Le pasamos si el rival tiene algún plato.
+					getLista()[m].hacerJugada(getLista()[j].getPlatoKop() >= 1); // Le pasamos si el rival tiene algï¿½n plato.
 					if (getLista()[m].getHaUsadoMalo()) {
 						if (!getLista()[j].hacerJugadaExtra()) {
 							Plato a = new Plato(false);

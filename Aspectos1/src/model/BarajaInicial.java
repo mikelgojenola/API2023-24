@@ -28,25 +28,21 @@ public class BarajaInicial {
 	public void llenarBaraja() {
 		int i = 0,x = 0,p = 0, k = 0;
 		while (i<48) {
-			//lista.gehituCarta(new Carta ("Malo"));
 			Carta kar = CartaFactory.getK().crearCarta(TipoCartas.Malo, p);
 			lista.meteCarta(kar);
 			i++;
 		}
 		while (x<88) {
-			//lista.gehituCarta(new Carta ("Habia"));
 			Carta kar = CartaFactory.getK().crearCarta(TipoCartas.Cocina, p);
 			lista.meteCarta(kar);
 			x++;
 		}
 		while (p<120) {
-			//lista.gehituCarta(new Carta ("Oilar"));
 			Carta kar = CartaFactory.getK().crearCarta(TipoCartas.Rata, p);
 			lista.meteCarta(kar);
 			p++;
 		}
 		while (k<120) {
-			//lista.gehituCarta(new Carta ("Oilo"));
 			Carta kar = CartaFactory.getK().crearCarta(TipoCartas.Chef, p);
 			lista.meteCarta(kar);
 			k++;

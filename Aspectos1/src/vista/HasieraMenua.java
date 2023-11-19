@@ -162,10 +162,8 @@ public class HasieraMenua extends JFrame {
 			if(e.getSource().equals(btnJokatu)) {
 				String nombre = HasieraMenua.this.txtfldNombre.getText();
 				int edad = Integer.parseInt(HasieraMenua.this.txtfldEdad.getText());
-				//Tableroa tableroa = new Tableroa(nombre);
 				frame.setVisible(false);
 				partidaPrestatu(nombre, edad);
-				//ListaJokalaria.partidaJolastu(nombre,edad);
 			}
 		}
 	}

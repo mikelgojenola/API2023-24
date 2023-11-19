@@ -481,25 +481,20 @@ public class Tableroa extends JFrame implements Observer {
 				} else {
 					this.image = "/irudiak/" + rr.get(i) + ".png";
 				}
-				//System.out.println(this.image);
 				ImageIcon imageIcon = new ImageIcon(Tableroa.class.getResource(this.image));
 				Image image = imageIcon.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 				
 				if (i == 0) {
 					lblFotoCarta1.setIcon(new ImageIcon(image));
-					//btnCarta1.add(lblFotoCarta1, BorderLayout.SOUTH);
 				} 
 				if (i == 1) {
 					lblFotoCarta2.setIcon(new ImageIcon(image));
-					//btnCarta2.add(lblFotoCarta2, BorderLayout.SOUTH);
 				} 
 				if (i == 2) {
 					lblFotoCarta3.setIcon(new ImageIcon(image));
-					//btnCarta3.add(lblFotoCarta3, BorderLayout.SOUTH);
 				} 
 				if (i == 3) {
 					lblFotoCarta4.setIcon(new ImageIcon(image));
-					//btnCarta4.add(lblFotoCarta4, BorderLayout.SOUTH);
 				} 
 				if (i == 4) {
 					
@@ -509,7 +504,6 @@ public class Tableroa extends JFrame implements Observer {
 					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
 					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 					lblFotoCarta5.setIcon(new ImageIcon(image2));
-					//btnCarta5.add(lblFotoCarta5, BorderLayout.SOUTH);
 				} 
 				if (i == 5) {
 					
@@ -518,7 +512,6 @@ public class Tableroa extends JFrame implements Observer {
 					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
 					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 					lblFotoCarta6.setIcon(new ImageIcon(image2));
-					//btnCarta6.add(lblFotoCarta6, BorderLayout.SOUTH);
 				} 
 				if (i == 6) {
 					
@@ -528,7 +521,6 @@ public class Tableroa extends JFrame implements Observer {
 					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 					
 					lblFotoCarta7.setIcon(new ImageIcon(image2));
-					//btnCarta7.add(lblFotoCarta7, BorderLayout.SOUTH);
 				} 
 				if (i == 7) {
 					
@@ -538,7 +530,6 @@ public class Tableroa extends JFrame implements Observer {
 					ImageIcon imageIcon2 = new ImageIcon(Tableroa.class.getResource(this.image));
 					Image image2 = imageIcon2.getImage().getScaledInstance(90, 145, Image.SCALE_SMOOTH);
 					lblFotoCarta8.setIcon(new ImageIcon(image2));
-					//btnCarta8.add(lblFotoCarta8, BorderLayout.SOUTH);
 				} 
 			}
 			
