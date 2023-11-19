@@ -141,6 +141,7 @@ public class JugadorNormal extends Jugador {
 	}
 	
 	public void hacerJugada2(ArrayList<Integer> jokaldiCartak, boolean rivalPlato) {
+		combIncorrecta = false;
 		if(jokaldiCartak.size() == 5) {
 			desCartatu(jokaldiCartak.get(0));
 		} else {
